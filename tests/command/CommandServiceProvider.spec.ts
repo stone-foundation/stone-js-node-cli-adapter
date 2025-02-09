@@ -1,7 +1,7 @@
 import { NODE_CONSOLE_PLATFORM } from '../../src/constants'
 import { CommandInput } from '../../src/command/CommandInput'
 import { CommandOutput } from '../../src/command/CommandOutput'
-import { CommandRouter } from '../../src/command/CommandRouter'
+import { CommandRouterEventHandler } from '../../src/command/CommandRouterEventHandler'
 import { NodeCliAdapterError } from '../../src/errors/NodeCliAdapterError'
 import { CommandServiceProvider, CommandServiceProviderOptions } from '../../src/command/CommandServiceProvider'
 
@@ -83,10 +83,10 @@ describe('CommandServiceProvider', () => {
     serviceProvider.registerRouter()
 
     expect(mockContainer.singletonIf).toHaveBeenCalledWith(
-      CommandRouter,
+      CommandRouterEventHandler,
       expect.any(Function)
     )
-    expect(mockContainer.alias).toHaveBeenCalledWith(CommandRouter, 'commandRouter')
+    expect(mockContainer.alias).toHaveBeenCalledWith(CommandRouterEventHandler, 'commandRouter')
   })
 
   it('should register command utilities', () => {

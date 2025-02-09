@@ -8,6 +8,6 @@
 
 > **NodeCliExecutionContext**: [`CommandBuilder`](CommandBuilder.md)
 
-Defined in: [src/declarations.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/declarations.ts#L18)
+Defined in: [node-cli-adapter/src/declarations.ts:28](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/declarations.ts#L28)
 
 Represents the Node Cli execution context as yargs.

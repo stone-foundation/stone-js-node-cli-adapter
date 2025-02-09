@@ -6,7 +6,7 @@
 
 # Class: NodeCliErrorHandler
 
-Defined in: [src/NodeCliErrorHandler.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliErrorHandler.ts#L14)
+Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliErrorHandler.ts#L14)
 
 Class representing an NodeCliErrorHandler.
 
@@ -20,7 +20,7 @@ Class representing an NodeCliErrorHandler.
 
 > **new NodeCliErrorHandler**(`options`): [`NodeCliErrorHandler`](NodeCliErrorHandler.md)
 
-Defined in: [src/NodeCliErrorHandler.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliErrorHandler.ts#L22)
+Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliErrorHandler.ts#L22)
 
 Create an NodeCliErrorHandler.
 
@@ -42,7 +42,7 @@ NodeCliErrorHandler options.
 
 > **handle**(`error`, `context`): `Promise`\<`number`\>
 
-Defined in: [src/NodeCliErrorHandler.ts:37](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliErrorHandler.ts#L37)
+Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:37](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliErrorHandler.ts#L37)
 
 Handle an error.
 

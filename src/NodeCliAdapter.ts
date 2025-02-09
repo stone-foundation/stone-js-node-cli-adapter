@@ -7,8 +7,23 @@ import { COMMAND_NOT_FOUND_CODE } from './constants'
 import { CommandOptions } from './decorators/Command'
 import { RawResponseWrapper } from './RawResponseWrapper'
 import { NodeCliAdapterError } from './errors/NodeCliAdapterError'
-import { NodeCliExecutionContext, NodeCliEvent, RawResponse, NodeCliAdapterContext } from './declarations'
-import { Adapter, AdapterEventBuilder, AdapterOptions, ClassType, IncomingEvent, IncomingEventOptions, LifecycleEventHandler, OutgoingResponse, RawResponseOptions } from '@stone-js/core'
+import {
+  RawResponse,
+  NodeCliEvent,
+  MetaCommandHandler,
+  NodeCliAdapterContext,
+  NodeCliExecutionContext
+} from './declarations'
+import {
+  Adapter,
+  IncomingEvent,
+  AdapterOptions,
+  OutgoingResponse,
+  RawResponseOptions,
+  AdapterEventBuilder,
+  IncomingEventOptions,
+  LifecycleAdapterEventHandler
+} from '@stone-js/core'
 
 /**
  * Node Cli Adapter for Stone.js.
@@ -72,8 +87,8 @@ NodeCliAdapterContext
    *
    * @returns An array of command constructor functions.
    */
-  private get commands (): Array<[ClassType | Function, CommandOptions]> {
-    return this.blueprint.get<Array<[ClassType | Function, CommandOptions]>>('stone.adapter.commands', [])
+  private get commands (): Array<MetaCommandHandler<IncomingEvent, OutgoingResponse>> {
+    return this.blueprint.get<Array<MetaCommandHandler<IncomingEvent, OutgoingResponse>>>('stone.adapter.commands', [])
   }
 
   /**
@@ -126,12 +141,13 @@ NodeCliAdapterContext
    * @returns A promise resolving to the processed `RawResponse`.
    */
   protected async eventListener (rawEvent: NodeCliEvent, executionContext: NodeCliExecutionContext): Promise<RawResponse> {
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleEventHandler<IncomingEvent, OutgoingResponse>
+    const incomingEvent = this.blueprint.get('stone.adapter.incomingEvent', IncomingEvent)
+    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
 
     await this.onPrepare(eventHandler)
 
     const incomingEventBuilder = AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({
-      resolver: (options) => IncomingEvent.create(options)
+      resolver: (options) => incomingEvent.create(options)
     })
 
     const rawResponseBuilder = AdapterEventBuilder.create<RawResponseOptions, RawResponseWrapper>({
@@ -174,8 +190,7 @@ NodeCliAdapterContext
   private registerAppCommands (builder: NodeCliExecutionContext): this {
     this
       .commands
-      .map(([, options]) => options)
-      .forEach((options) => this.registerCommand(options, builder))
+      .forEach(({ options }) => this.registerCommand(options, builder))
 
     return this
   }

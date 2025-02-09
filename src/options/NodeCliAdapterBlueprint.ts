@@ -1,12 +1,12 @@
+import { MetaCommandHandler } from '../declarations'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { nodeCliAdapterResolver } from '../resolvers'
-import { CommandOptions } from '../decorators/Command'
 import { NodeCliErrorHandler } from '../NodeCliErrorHandler'
-import { CommandMiddleware } from '../middleware/configMiddleware'
 import { CommandServiceProvider } from '../command/CommandServiceProvider'
-import { RawResponseMiddleware } from '../middleware/RawResponseMiddleware'
-import { IncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
-import { AdapterConfig, AppConfig, ClassType, StoneBlueprint } from '@stone-js/core'
+import { metaAdapterConfigMiddleware } from '../middleware/configMiddleware'
+import { MetaRawResponseMiddleware } from '../middleware/RawResponseMiddleware'
+import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
+import { AdapterConfig, AppConfig, IncomingEvent, StoneBlueprint } from '@stone-js/core'
 
 /**
  * Configuration interface for the Node Cli Adapter.
@@ -15,15 +15,16 @@ import { AdapterConfig, AppConfig, ClassType, StoneBlueprint } from '@stone-js/c
  * customizable options specific to the Node Cli platform. This includes
  * alias, resolver, middleware, hooks, and various adapter state flags.
  */
-export interface NodeCliAdapterConfig extends AdapterConfig {
-  commands: Array<[ClassType, CommandOptions]>
+export interface NodeCliAdapterAdapterConfig extends AdapterConfig {
+  commands: MetaCommandHandler[]
+  incomingEvent?: typeof IncomingEvent
 }
 
 /**
  * Represents the NodeCli configuration options for the application.
  */
-export interface NodeCliAdapterAppConfig extends Partial<AppConfig> {
-  adapters: NodeCliAdapterConfig[]
+export interface NodeCliAdapterConfig extends Partial<AppConfig> {
+  adapters: NodeCliAdapterAdapterConfig[]
 }
 
 /**
@@ -34,7 +35,7 @@ export interface NodeCliAdapterAppConfig extends Partial<AppConfig> {
  * a `stone` object with an array of `NodeCliAdapterConfig` items.
  */
 export interface NodeCliAdapterBlueprint extends StoneBlueprint {
-  stone: NodeCliAdapterAppConfig
+  stone: NodeCliAdapterConfig
 }
 
 /**
@@ -49,28 +50,26 @@ export interface NodeCliAdapterBlueprint extends StoneBlueprint {
 export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
   stone: {
     builder: {
-      middleware: [
-        { priority: 1, pipe: CommandMiddleware }
-      ]
+      middleware: metaAdapterConfigMiddleware
     },
     providers: [
       CommandServiceProvider
     ],
     adapters: [
       {
+        hooks: {},
+        commands: [],
+        current: false,
+        default: false,
         platform: NODE_CONSOLE_PLATFORM,
         resolver: nodeCliAdapterResolver,
         middleware: [
-          { priority: 0, pipe: IncomingEventMiddleware },
-          { priority: 10, pipe: RawResponseMiddleware }
+          MetaIncomingEventMiddleware,
+          MetaRawResponseMiddleware
         ],
-        hooks: {},
-        commands: [],
         errorHandlers: {
-          default: NodeCliErrorHandler
-        },
-        current: false,
-        default: false
+          default: { module: NodeCliErrorHandler, isClass: true }
+        }
       }
     ]
   }

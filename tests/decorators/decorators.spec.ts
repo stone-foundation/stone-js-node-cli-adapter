@@ -16,7 +16,7 @@ vi.mock('@stone-js/core', async (importOriginal) => {
     classDecoratorLegacyWrapper: (fn: Function) => {
       fn()
       return fn
-    },
+    }
   }
 })
 

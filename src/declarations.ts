@@ -1,6 +1,16 @@
 import { Argv } from 'yargs'
+import { CommandOptions } from './decorators/Command'
 import { RawResponseWrapper } from './RawResponseWrapper'
-import { AdapterContext, EventHandlerFunction, IAdapterEventBuilder, IncomingEvent, IncomingEventOptions, OutgoingResponse, RawResponseOptions } from '@stone-js/core'
+import {
+  IContainer,
+  IncomingEvent,
+  AdapterContext,
+  OutgoingResponse,
+  RawResponseOptions,
+  IAdapterEventBuilder,
+  IncomingEventOptions,
+  FunctionalEventHandler
+} from '@stone-js/core'
 
 /**
  * Represents a generic raw response as a number.
@@ -23,11 +33,51 @@ export type NodeCliExecutionContext = CommandBuilder
 export type NodeCliAdapterResponseBuilder = IAdapterEventBuilder<RawResponseOptions, RawResponseWrapper>
 
 /**
+ * Represents CommandHandlerClass.
+ */
+export type CommandHandlerClass<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> = new (...args: any[]) => ICommandHandler<W, X>
+
+/**
  * Represents the CommandHandler function for the Node Cli Adapter.
  */
-export interface ICommand<W extends IncomingEvent = IncomingEvent, X extends OutgoingResponse = OutgoingResponse> {
-  handle: EventHandlerFunction<W, X>
+export interface ICommandHandler<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> {
+  handle: FunctionalEventHandler<W, X>
   match?: (event: IncomingEvent) => boolean
+}
+
+/**
+ * Represents FactoryCommandHandler.
+ */
+export type FactoryCommandHandler<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> = (container: IContainer | any) => ICommandHandler<W, X>
+
+/**
+ * Represents CommandHandlerType.
+ */
+export type CommandHandlerType<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> = CommandHandlerClass<W, X> | FactoryCommandHandler<W, X>
+
+/**
+ * Represents MetaCommandHandler.
+ */
+export interface MetaCommandHandler<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> {
+  isClass?: boolean
+  isFactory?: boolean
+  options: CommandOptions
+  module: CommandHandlerType<W, X>
 }
 
 /**

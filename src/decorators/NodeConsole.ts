@@ -1,12 +1,12 @@
 import deepmerge from 'deepmerge'
 import { addBlueprint, classDecoratorLegacyWrapper, ClassType } from '@stone-js/core'
-import { nodeCliAdapterBlueprint, NodeCliAdapterConfig } from '../options/NodeCliAdapterBlueprint'
+import { nodeCliAdapterBlueprint, NodeCliAdapterAdapterConfig } from '../options/NodeCliAdapterBlueprint'
 
 /**
  * Configuration options for the `NodeConsole` decorator.
  * These options extend the default Node Cli adapter configuration.
  */
-export interface NodeConsoleOptions extends Partial<NodeCliAdapterConfig> {}
+export interface NodeConsoleOptions extends Partial<NodeCliAdapterAdapterConfig> {}
 
 /**
  * A Stone.js decorator that integrates the Node Cli Adapter with a class.

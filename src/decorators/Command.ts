@@ -56,5 +56,5 @@ export interface CommandOptions {
  * ```
  */
 export const Command = <T extends ClassType = ClassType>(options: Partial<CommandOptions> = {}): ClassDecorator => {
-  return setClassMetadata<T>(COMMAND_KEY, options)
+  return setClassMetadata<T>(COMMAND_KEY, { options, isClass: true })
 }

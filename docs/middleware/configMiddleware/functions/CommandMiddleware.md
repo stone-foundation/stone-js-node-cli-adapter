@@ -6,28 +6,28 @@
 
 # Function: CommandMiddleware()
 
-> **CommandMiddleware**(`configContext`, `next`): `IBlueprint` \| `Promise`\<`IBlueprint`\>
+> **CommandMiddleware**(`context`, `next`): `Promise`\<`IBlueprint`\>
 
-Defined in: [src/middleware/configMiddleware.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/middleware/configMiddleware.ts#L13)
+Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/middleware/configMiddleware.ts#L14)
 
 Middleware to process and register modules as command handlers.
 
 ## Parameters
 
-### configContext
+### context
 
-`ConfigContext`
+`ConfigContext`\<`IBlueprint`, `ClassType`\>
 
 The configuration context containing the modules and blueprint.
 
 ### next
 
-`NextPipe`\<`ConfigContext`, `IBlueprint`\>
+`NextPipe`\<`ConfigContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>
 
 The next middleware in the pipeline to call.
 
 ## Returns
 
-`IBlueprint` \| `Promise`\<`IBlueprint`\>
+`Promise`\<`IBlueprint`\>
 
 The updated blueprint or a promise resolving to it.

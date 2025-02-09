@@ -1,26 +1,29 @@
-import { ICommand } from '../declarations'
 import { COMMAND_NOT_FOUND_CODE } from '../constants'
 import { CommandOptions } from '../decorators/Command'
 import { Container } from '@stone-js/service-container'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
-import { ClassType, EventHandlerFunction, IBlueprint, IncomingEvent, IRouter, OutgoingResponse } from '@stone-js/core'
+import { CommandHandlerClass, FactoryCommandHandler, ICommandHandler, MetaCommandHandler } from '../declarations'
+import { IBlueprint, IEventHandler, IncomingEvent, isMetaClassModule, isMetaFactoryModule, OutgoingResponse } from '@stone-js/core'
 
 /**
- * CommandRouter options.
+ * CommandRouterEventHandlerOptions options.
  */
-export interface CommandRouterOptions {
+export interface CommandRouterEventHandlerOptions {
   container: Container
   blueprint: IBlueprint
 }
 
 /**
- * Class representing a CommandRouter.
+ * Class representing a CommandRouterEventHandler.
  * Responsible for finding and dispatching commands based on incoming events.
  *
  * @author
  * Mr. Stone <evensstone@gmail.com>
  */
-export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends OutgoingResponse = OutgoingResponse> implements IRouter<W, X> {
+export class CommandRouterEventHandler<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> implements IEventHandler<W, X> {
   /**
    * Blueprint configuration used to retrieve app settings.
    */
@@ -45,7 +48,7 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
   static create<
     W extends IncomingEvent = IncomingEvent,
     X extends OutgoingResponse = OutgoingResponse
-  >(options: CommandRouterOptions): CommandRouter<W, X> {
+  >(options: CommandRouterEventHandlerOptions): CommandRouterEventHandler<W, X> {
     return new this(options)
   }
 
@@ -54,7 +57,7 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    *
    * @param container - The container instance for dependency resolution.
    */
-  constructor ({ blueprint, container }: CommandRouterOptions) {
+  constructor ({ blueprint, container }: CommandRouterEventHandlerOptions) {
     this.blueprint = blueprint
     this.container = container
   }
@@ -64,8 +67,18 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    *
    * @returns An array of command constructor functions.
    */
-  private get commands (): Array<[ClassType, CommandOptions]> {
-    return this.blueprint.get<Array<[ClassType, CommandOptions]>>('stone.adapter.commands', [])
+  private get commands (): Array<MetaCommandHandler<W, X>> {
+    return this.blueprint.get<Array<MetaCommandHandler<W, X>>>('stone.adapter.commands', [])
+  }
+
+  /**
+   * Handle an incoming event.
+   *
+   * @param event - The incoming event to process.
+   * @returns The outgoing response.
+   */
+  async handle (event: W): Promise<X> {
+    return await this.dispatch(event)
   }
 
   /**
@@ -84,10 +97,13 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    * @param event - The incoming event to match against commands.
    * @returns The matching command, or undefined if no match is found.
    */
-  findCommand (event: W): ICommand<W, X> | undefined {
-    const commands = this.commands.map(([commandClass, options]) => ({ options, command: this.resolveCommand(commandClass) }))
-    return commands.find(({ command, options }) => this.checkCommandMatch(command, event, options))?.command ??
-      commands.find(({ options }) => options.name === '*')?.command
+  findCommand (event: W): ICommandHandler<W, X> | undefined {
+    const commands = this.commands.map((command) => ({ options: command.options, command: this.resolveCommand(command) }))
+
+    return (
+      commands.find(({ command, options }) => this.checkCommandMatch(command, event, options)) ??
+      commands.find(({ options }) => options.name === '*')
+    )?.command
   }
 
   /**
@@ -97,7 +113,7 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    * @param command - The command to execute.
    * @returns The result of the command execution, or void if no command is found.
    */
-  async runCommand (event: W, command?: ICommand<W, X>): Promise<X> {
+  async runCommand (event: W, command?: ICommandHandler<W, X>): Promise<X> {
     if (command === undefined) {
       return OutgoingResponse.create({ statusCode: COMMAND_NOT_FOUND_CODE }) as X
     } else if (typeof command.handle === 'function') {
@@ -110,20 +126,20 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
   /**
    * Resolves a command instance from the container.
    *
-   * @param commandClass - The command constructor function.
+   * @param metaCommand - The command constructor function.
    * @returns The resolved command instance.
    */
-  private resolveCommand (commandClass: ClassType | Function): ICommand<W, X> {
-    let command: ICommand<W, X> | undefined
+  private resolveCommand (metaCommand: MetaCommandHandler<W, X>): ICommandHandler<W, X> {
+    let command: ICommandHandler<W, X> | undefined
 
-    if (typeof commandClass === 'function') {
-      command = Object.prototype.hasOwnProperty.call(commandClass, 'prototype')
-        ? this.container.resolve<ICommand<W, X>>(commandClass, true)
-        : { handle: commandClass as unknown as EventHandlerFunction<W, X> }
+    if (isMetaClassModule<CommandHandlerClass<W, X>>(metaCommand)) {
+      command = this.container.resolve<ICommandHandler<W, X>>(metaCommand.module, true)
+    } else if (isMetaFactoryModule<FactoryCommandHandler<W, X>>(metaCommand)) {
+      command = metaCommand.module(this.container)
     }
 
     if (command === undefined) {
-      throw new NodeCliAdapterError(`Failed to resolve command: ${commandClass.name}`)
+      throw new NodeCliAdapterError(`Failed to resolve command: ${metaCommand.options.name}`)
     }
 
     return command
@@ -136,7 +152,7 @@ export class CommandRouter<W extends IncomingEvent = IncomingEvent, X extends Ou
    * @param event - The event to match.
    * @returns True if the command matches; otherwise, false.
    */
-  private checkCommandMatch (command: ICommand<W, X>, event: W, options: CommandOptions): boolean {
+  private checkCommandMatch (command: ICommandHandler<W, X>, event: W, options: CommandOptions): boolean {
     if (typeof command.match === 'function') {
       return command.match(event)
     } else {

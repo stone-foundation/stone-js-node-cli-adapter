@@ -6,7 +6,7 @@ import { ClassType, ConfigContext, MetadataSymbol, MetadataHolder, IBlueprint } 
 const mockNext = vi.fn()
 
 const mockBlueprint = {
-  add: vi.fn().mockReturnThis(),
+  add: vi.fn().mockReturnThis()
 } as unknown as IBlueprint
 
 // Utility functions

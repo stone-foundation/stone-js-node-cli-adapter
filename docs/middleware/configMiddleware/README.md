@@ -6,6 +6,11 @@
 
 # middleware/configMiddleware
 
+## Variables
+
+- [metaAdapterConfigMiddleware](variables/metaAdapterConfigMiddleware.md)
+
 ## Functions
 
 - [CommandMiddleware](functions/CommandMiddleware.md)
+- [SetResponseResolverMiddleware](functions/SetResponseResolverMiddleware.md)

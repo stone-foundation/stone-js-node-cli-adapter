@@ -6,7 +6,7 @@
 
 # Interface: CommandInputOptions
 
-Defined in: [src/command/CommandInput.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandInput.ts#L7)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/command/CommandInput.ts#L7)
 
 CommandInputOptions
 
@@ -14,9 +14,9 @@ CommandInputOptions
 
 ### prompt()
 
-> **prompt**: \<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `Answers`\<`Extract`\<keyof `A`, `string`\>\> *extends* `T_1` ? \{ \[K\_1 in string \| number \| symbol\]: \{\}\[K\_1\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A`\>
+> **prompt**: \<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T_1` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `Answers`\<`Extract`\<keyof `A`, `string`\>\> *extends* `T_1` ? \{ \[K\_1 in string \| number \| symbol\]: \{\}\[K\_1\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T_1` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>\<`A`, `PrefilledAnswers`\>(`questions`, `answers`?) => `PromptReturnType`\<`PrefilledAnswers` & `A`\>
 
-Defined in: [src/command/CommandInput.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandInput.ts#L8)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/command/CommandInput.ts#L8)
 
 #### Type Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/command/CommandInput.ts:8](https://github.com/stonemjs/node-cli
 
 #### Returns
 
-`PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>
+`PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T_1` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>
 
 #### Type Parameters
 
@@ -76,7 +76,7 @@ Defined in: [src/command/CommandInput.ts:8](https://github.com/stonemjs/node-cli
 
 #### Returns
 
-`PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>
+`PromptReturnType`\<`PrefilledAnswers` & `A` *extends* `T_1` ? \{ \[K in string \| number \| symbol\]: \{\}\[K\] \} : `never`\>
 
 #### Type Parameters
 

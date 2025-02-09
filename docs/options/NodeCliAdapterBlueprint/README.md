@@ -8,7 +8,7 @@
 
 ## Interfaces
 
-- [NodeCliAdapterAppConfig](interfaces/NodeCliAdapterAppConfig.md)
+- [NodeCliAdapterAdapterConfig](interfaces/NodeCliAdapterAdapterConfig.md)
 - [NodeCliAdapterBlueprint](interfaces/NodeCliAdapterBlueprint.md)
 - [NodeCliAdapterConfig](interfaces/NodeCliAdapterConfig.md)
 

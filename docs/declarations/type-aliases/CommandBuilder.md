@@ -8,6 +8,6 @@
 
 > **CommandBuilder**: `Argv`\<\{\}\>
 
-Defined in: [src/declarations.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/declarations.ts#L13)
+Defined in: [node-cli-adapter/src/declarations.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/declarations.ts#L23)
 
 Represents the CommandBuilder as yargs.

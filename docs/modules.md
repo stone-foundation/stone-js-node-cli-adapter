@@ -8,7 +8,7 @@
 
 - [command/CommandInput](command/CommandInput/README.md)
 - [command/CommandOutput](command/CommandOutput/README.md)
-- [command/CommandRouter](command/CommandRouter/README.md)
+- [command/CommandRouterEventHandler](command/CommandRouterEventHandler/README.md)
 - [command/CommandServiceProvider](command/CommandServiceProvider/README.md)
 - [constants](constants/README.md)
 - [declarations](declarations/README.md)
@@ -24,3 +24,4 @@
 - [options/NodeCliAdapterBlueprint](options/NodeCliAdapterBlueprint/README.md)
 - [RawResponseWrapper](RawResponseWrapper/README.md)
 - [resolvers](resolvers/README.md)
+- [utils](utils/README.md)

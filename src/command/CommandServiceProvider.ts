@@ -4,10 +4,10 @@ import inquirer from 'inquirer'
 import { CommandInput } from './CommandInput'
 import { CommandOutput } from './CommandOutput'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
-import { IBlueprint, IProvider } from '@stone-js/core'
 import { Container } from '@stone-js/service-container'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
-import { CommandRouter, CommandRouterOptions } from './CommandRouter'
+import { CommandRouterEventHandler } from './CommandRouterEventHandler'
+import { IBlueprint, IncomingEvent, IServiceProvider, OutgoingResponse } from '@stone-js/core'
 
 /**
  * CommandServiceProvider options.
@@ -24,7 +24,7 @@ export interface CommandServiceProviderOptions {
  * @author
  * Mr. Stone <evensstone@gmail.com>
  */
-export class CommandServiceProvider implements IProvider {
+export class CommandServiceProvider implements IServiceProvider<IncomingEvent, OutgoingResponse> {
   /**
    * Blueprint configuration used to retrieve app settings.
    */
@@ -62,27 +62,17 @@ export class CommandServiceProvider implements IProvider {
    * Prepares the provider for service registration.
    */
   onPrepare (): void {
-    this.blueprint.set('stone.kernel.routerResolver', (container: Container) => container.make<CommandRouter>('commandRouter'))
+    this.blueprint.set(
+      'stone.handler',
+      { module: CommandRouterEventHandler, isClass: true }
+    )
   }
 
   /**
    * Registers router components and application commands in the service container.
    */
   register (): void {
-    this
-      .registerRouter()
-      .registerCommandUtils()
-  }
-
-  /**
-   * Registers the router in the service container.
-   */
-  private registerRouter (): this {
-    this.container
-      .singletonIf(CommandRouter, container => CommandRouter.create(container.make<CommandRouterOptions>('container')))
-      .alias(CommandRouter, 'commandRouter')
-
-    return this
+    this.registerCommandUtils()
   }
 
   /**

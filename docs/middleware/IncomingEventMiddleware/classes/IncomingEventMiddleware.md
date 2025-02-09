@@ -6,7 +6,7 @@
 
 # Class: IncomingEventMiddleware
 
-Defined in: [src/middleware/IncomingEventMiddleware.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/middleware/IncomingEventMiddleware.ts#L10)
+Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:12](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/middleware/IncomingEventMiddleware.ts#L12)
 
 Middleware for handling incoming events in the Node CLI adapter.
 
@@ -28,7 +28,7 @@ This middleware processes the incoming event and prepares it for the next middle
 
 > **handle**(`context`, `next`): `Promise`\<[`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
 
-Defined in: [src/middleware/IncomingEventMiddleware.ts:19](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/middleware/IncomingEventMiddleware.ts#L19)
+Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/middleware/IncomingEventMiddleware.ts#L21)
 
 Handles the incoming event, processes it, and invokes the next middleware in the pipeline.
 

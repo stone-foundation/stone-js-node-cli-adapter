@@ -1,14 +1,14 @@
 import { IncomingEvent } from '@stone-js/core'
 import { COMMAND_NOT_FOUND_CODE } from '../../src/constants'
 import { NodeCliAdapterError } from '../../src/errors/NodeCliAdapterError'
-import { CommandRouter, CommandRouterOptions } from '../../src/command/CommandRouter'
+import { CommandRouterEventHandler, CommandRouterOptions } from '../../src/command/CommandRouterEventHandler'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
 describe('CommandRouter', () => {
   let mockBlueprint: any
   let mockContainer: any
-  let commandRouter: CommandRouter
+  let commandRouter: CommandRouterEventHandler
 
   beforeEach(() => {
     mockBlueprint = {
@@ -26,11 +26,11 @@ describe('CommandRouter', () => {
       container: mockContainer
     }
 
-    commandRouter = CommandRouter.create(options)
+    commandRouter = CommandRouterEventHandler.create(options)
   })
 
   it('should create a CommandRouter instance', () => {
-    expect(commandRouter).toBeInstanceOf(CommandRouter)
+    expect(commandRouter).toBeInstanceOf(CommandRouterEventHandler)
   })
 
   it('should retrieve commands from the blueprint', () => {
