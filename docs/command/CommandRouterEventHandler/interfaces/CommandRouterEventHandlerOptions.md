@@ -6,7 +6,7 @@
 
 # Interface: CommandRouterEventHandlerOptions
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:11
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L11)
 
 CommandRouterEventHandlerOptions options.
 
@@ -16,7 +16,7 @@ CommandRouterEventHandlerOptions options.
 
 > **blueprint**: `IBlueprint`
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:13
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:13](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L13)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:13
 
 > **container**: `Container`
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:12
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:12](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L12)

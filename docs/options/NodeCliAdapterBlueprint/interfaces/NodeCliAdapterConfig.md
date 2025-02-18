@@ -6,7 +6,7 @@
 
 # Interface: NodeCliAdapterConfig
 
-Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:26](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/options/NodeCliAdapterBlueprint.ts#L26)
+Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:26](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/options/NodeCliAdapterBlueprint.ts#L26)
 
 Represents the NodeCli configuration options for the application.
 
@@ -35,7 +35,7 @@ This key allow you to specify the current adapter with the alias key.
 
 > **adapters**: [`NodeCliAdapterAdapterConfig`](NodeCliAdapterAdapterConfig.md)[]
 
-Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/options/NodeCliAdapterBlueprint.ts#L27)
+Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/options/NodeCliAdapterBlueprint.ts#L27)
 
 Adapter configurations for the application.
 

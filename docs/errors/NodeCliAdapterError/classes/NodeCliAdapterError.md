@@ -6,7 +6,7 @@
 
 # Class: NodeCliAdapterError
 
-Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:6](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/errors/NodeCliAdapterError.ts#L6)
+Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:6](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/errors/NodeCliAdapterError.ts#L6)
 
 Custom error for Node CLI adapter operations.
 
@@ -20,7 +20,7 @@ Custom error for Node CLI adapter operations.
 
 > **new NodeCliAdapterError**(`message`, `options`?): [`NodeCliAdapterError`](NodeCliAdapterError.md)
 
-Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/errors/NodeCliAdapterError.ts#L7)
+Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/errors/NodeCliAdapterError.ts#L7)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://githu
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: core/dist/index.d.ts:2800
+Defined in: core/dist/index.d.ts:2837
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: core/dist/index.d.ts:2800
 
 > `readonly` `optional` **code**: `string`
 
-Defined in: core/dist/index.d.ts:2799
+Defined in: core/dist/index.d.ts:2836
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: core/dist/index.d.ts:2799
 
 > `readonly` `optional` **metadata**: `unknown`
 
-Defined in: core/dist/index.d.ts:2801
+Defined in: core/dist/index.d.ts:2838
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: core/dist/index.d.ts:2801
 
 > **toString**(`multiline`?): `string`
 
-Defined in: core/dist/index.d.ts:2822
+Defined in: core/dist/index.d.ts:2859
 
 Converts the error to a formatted string representation.
 
@@ -110,7 +110,7 @@ A formatted error string.
 
 > `static` **create**\<`T`\>(`message`, `options`?): `T`
 
-Defined in: core/dist/index.d.ts:2808
+Defined in: core/dist/index.d.ts:2845
 
 Create a RuntimeError.
 

@@ -6,7 +6,7 @@
 
 # Interface: NodeCliAdapterContext
 
-Defined in: [node-cli-adapter/src/declarations.ts:98](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/declarations.ts#L98)
+Defined in: [node-cli-adapter/src/declarations.ts:98](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/declarations.ts#L98)
 
 Represents the context for the Node Cli Adapter.
 
@@ -23,7 +23,7 @@ specific to generic Node Cli events.
 
 > `readonly` **executionContext**: [`CommandBuilder`](../type-aliases/CommandBuilder.md)
 
-Defined in: core/dist/index.d.ts:1596
+Defined in: core/dist/index.d.ts:1607
 
 The executionContext of type ExecutionContextType.
 
@@ -37,7 +37,7 @@ The executionContext of type ExecutionContextType.
 
 > `optional` **incomingEvent**: `IncomingEvent`
 
-Defined in: core/dist/index.d.ts:1600
+Defined in: core/dist/index.d.ts:1611
 
 The incomingEvent associated with the executionContext.
 
@@ -51,7 +51,7 @@ The incomingEvent associated with the executionContext.
 
 > `readonly` **incomingEventBuilder**: `IAdapterEventBuilder`\<`IncomingEventOptions`, `IncomingEvent`\>
 
-Defined in: core/dist/index.d.ts:1608
+Defined in: core/dist/index.d.ts:1619
 
 The incomingEventBuilder.
 
@@ -65,7 +65,7 @@ The incomingEventBuilder.
 
 > `optional` **outgoingResponse**: `OutgoingResponse`
 
-Defined in: core/dist/index.d.ts:1604
+Defined in: core/dist/index.d.ts:1615
 
 The outgoingResponse associated with the executionContext.
 
@@ -79,7 +79,7 @@ The outgoingResponse associated with the executionContext.
 
 > `readonly` **rawEvent**: [`NodeCliEvent`](NodeCliEvent.md)
 
-Defined in: core/dist/index.d.ts:1588
+Defined in: core/dist/index.d.ts:1599
 
 The rawEvent of type RawEventType.
 
@@ -93,7 +93,7 @@ The rawEvent of type RawEventType.
 
 > **rawResponse**: `number`
 
-Defined in: [node-cli-adapter/src/declarations.ts:109](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/declarations.ts#L109)
+Defined in: [node-cli-adapter/src/declarations.ts:109](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/declarations.ts#L109)
 
 The raw response associated with the current context.
 
@@ -107,7 +107,7 @@ The raw response associated with the current context.
 
 > `readonly` **rawResponseBuilder**: `IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`number`\>\>
 
-Defined in: core/dist/index.d.ts:1612
+Defined in: core/dist/index.d.ts:1623
 
 The rawResponseBuilder.
 

@@ -8,7 +8,7 @@
 
 > **SetResponseResolverMiddleware**(`context`, `next`): `Promise`\<`IBlueprint`\>
 
-Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:41](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/middleware/configMiddleware.ts#L41)
+Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:41](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/middleware/configMiddleware.ts#L41)
 
 Middleware to dynamically set response resolver for adapter.
 

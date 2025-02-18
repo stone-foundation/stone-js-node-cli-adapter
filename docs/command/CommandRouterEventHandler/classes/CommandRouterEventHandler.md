@@ -6,7 +6,7 @@
 
 # Class: CommandRouterEventHandler\<W, X\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:23
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L23)
 
 Class representing a CommandRouterEventHandler.
 Responsible for finding and dispatching commands based on incoming events.
@@ -31,7 +31,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new CommandRouterEventHandler**\<`W`, `X`\>(`container`): [`CommandRouterEventHandler`](CommandRouterEventHandler.md)\<`W`, `X`\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:60
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:60](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L60)
 
 Create a new instance of CommandRouter.
 
@@ -53,7 +53,7 @@ The container instance for dependency resolution.
 
 > **dispatch**(`event`): `Promise`\<`X`\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:90
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:90](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L90)
 
 Dispatches an event to the appropriate command.
 
@@ -77,7 +77,7 @@ The result of the command execution.
 
 > **findCommand**(`event`): `undefined` \| [`ICommandHandler`](../../../declarations/interfaces/ICommandHandler.md)\<`W`, `X`\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:100
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:100](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L100)
 
 Finds a command that matches the given event.
 
@@ -101,7 +101,7 @@ The matching command, or undefined if no match is found.
 
 > **handle**(`event`): `Promise`\<`X`\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:80
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:80](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L80)
 
 Handle an incoming event.
 
@@ -129,7 +129,7 @@ The outgoing response.
 
 > **runCommand**(`event`, `command`?): `Promise`\<`X`\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:116
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:116](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L116)
 
 Runs the given command with the provided event.
 
@@ -159,7 +159,7 @@ The result of the command execution, or void if no command is found.
 
 > `static` **create**\<`W`, `X`\>(`options`): [`CommandRouterEventHandler`](CommandRouterEventHandler.md)\<`W`, `X`\>
 
-Defined in: node-cli-adapter/src/command/CommandRouterEventHandler.ts:48
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:48](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandRouterEventHandler.ts#L48)
 
 Creates a new instance of `CommandRouter`.
 

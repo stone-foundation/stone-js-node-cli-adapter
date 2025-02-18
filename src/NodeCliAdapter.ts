@@ -101,11 +101,13 @@ NodeCliAdapterContext
    * @throws {NodeCliAdapterError} If used outside the Node Cli environment.
    */
   public async run<ExecutionResultType = RawResponse>(): Promise<ExecutionResultType> {
-    await this.onInit()
+    await this.onStart()
 
     const executionContext = yargs(hideBin(argv)).help().version(version).scriptName('stone')
     const rawEvent = await this.registerAppCommands(executionContext).makeRawEvent(executionContext)
     const response = await this.eventListener(rawEvent, executionContext)
+
+    await this.onStop()
 
     response === COMMAND_NOT_FOUND_CODE && executionContext.showHelp()
 
@@ -120,14 +122,14 @@ NodeCliAdapterContext
    *
    * @throws {NodeCliAdapterError} If executed outside an Node Cli context (e.g., browser).
    */
-  protected async onInit (): Promise<void> {
+  protected async onStart (): Promise<void> {
     if (typeof window === 'object') {
       throw new NodeCliAdapterError(
         'This `NodeCliAdapter` must be used only in Node Cli context.'
       )
     }
 
-    await super.onInit()
+    await super.onStart()
   }
 
   /**

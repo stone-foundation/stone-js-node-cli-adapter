@@ -8,7 +8,7 @@
 
 > **Command**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/decorators/Command.ts#L58)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/decorators/Command.ts#L58)
 
 Command decorator to mark a class as a command and automatically bind it to the container.
 

@@ -6,7 +6,7 @@
 
 # Interface: CommandServiceProviderOptions
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/command/CommandServiceProvider.ts#L15)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L15)
 
 CommandServiceProvider options.
 
@@ -16,7 +16,7 @@ CommandServiceProvider options.
 
 > **blueprint**: `IBlueprint`
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:17](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/command/CommandServiceProvider.ts#L17)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:17](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L17)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:17](https://
 
 > **container**: `Container`
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:16](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/command/CommandServiceProvider.ts#L16)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:16](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L16)

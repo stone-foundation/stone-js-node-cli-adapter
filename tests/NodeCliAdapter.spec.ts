@@ -55,19 +55,19 @@ describe('NodeCliAdapter', () => {
     })
   })
 
-  describe('onInit', () => {
+  describe('onStart', () => {
     it('should throw an error if executed in a browser environment', async () => {
       // Simulate browser environment
       Object.defineProperty(global, 'window', { value: {}, configurable: true })
       // @ts-expect-error - Ignore for testing purposes
-      await expect(adapter.onInit()).rejects.toThrow(NodeCliAdapterError)
+      await expect(adapter.onStart()).rejects.toThrow(NodeCliAdapterError)
       // Clean up
       delete (global as any).window
     })
 
     it('should not throw an error in a Node.js environment', async () => {
       // @ts-expect-error - Ignore for testing purposes
-      await expect(adapter.onInit()).resolves.not.toThrow()
+      await expect(adapter.onStart()).resolves.not.toThrow()
     })
   })
 

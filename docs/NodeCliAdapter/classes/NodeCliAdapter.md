@@ -6,7 +6,7 @@
 
 # Class: NodeCliAdapter
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:61](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliAdapter.ts#L61)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:61](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/NodeCliAdapter.ts#L61)
 
 Node Cli Adapter for Stone.js.
 
@@ -71,7 +71,7 @@ export { handler };
 
 > `protected` **new NodeCliAdapter**(`options`): [`NodeCliAdapter`](NodeCliAdapter.md)
 
-Defined in: core/dist/index.d.ts:2631
+Defined in: core/dist/index.d.ts:2656
 
 Create an Adapter.
 
@@ -97,7 +97,7 @@ Adapter options.
 
 > `protected` `readonly` **blueprint**: `IBlueprint`\<`any`\>
 
-Defined in: core/dist/index.d.ts:2623
+Defined in: core/dist/index.d.ts:2648
 
 #### Inherited from
 
@@ -109,7 +109,7 @@ Defined in: core/dist/index.d.ts:2623
 
 > `protected` `readonly` **handlerResolver**: `AdapterEventHandlerResolver`\<`IncomingEvent`, `OutgoingResponse`\>
 
-Defined in: core/dist/index.d.ts:2624
+Defined in: core/dist/index.d.ts:2649
 
 #### Inherited from
 
@@ -121,7 +121,7 @@ Defined in: core/dist/index.d.ts:2624
 
 > `protected` `readonly` **hooks**: `AdapterHooks`
 
-Defined in: core/dist/index.d.ts:2622
+Defined in: core/dist/index.d.ts:2647
 
 #### Inherited from
 
@@ -133,7 +133,7 @@ Defined in: core/dist/index.d.ts:2622
 
 > `protected` `readonly` **logger**: `ILogger`
 
-Defined in: core/dist/index.d.ts:2621
+Defined in: core/dist/index.d.ts:2646
 
 #### Inherited from
 
@@ -145,7 +145,7 @@ Defined in: core/dist/index.d.ts:2621
 
 > `protected` **afterHandle**(`eventHandler`, `context`): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2681
+Defined in: core/dist/index.d.ts:2710
 
 Hook that runs after handling each event.
 
@@ -177,7 +177,7 @@ The event context.
 
 > `protected` **beforeHandle**(`eventHandler`): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2674
+Defined in: core/dist/index.d.ts:2703
 
 Hook that runs before handling each event.
 
@@ -203,7 +203,7 @@ Action handler to be run.
 
 > `protected` **eventListener**(`rawEvent`, `executionContext`): `Promise`\<`number`\>
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:143](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliAdapter.ts#L143)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:145](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/NodeCliAdapter.ts#L145)
 
 Processes an incoming Node Cli event.
 
@@ -236,7 +236,7 @@ A promise resolving to the processed `RawResponse`.
 
 > `protected` **executeHooks**(`hook`, `context`?): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2695
+Defined in: core/dist/index.d.ts:2724
 
 Execute lifecycle hooks.
 
@@ -268,7 +268,7 @@ The event context.
 
 > `protected` **makePipelineOptions**(): `PipelineOptions`\<[`NodeCliAdapterContext`](../../declarations/interfaces/NodeCliAdapterContext.md), `IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`number`\>\>\>
 
-Defined in: core/dist/index.d.ts:2701
+Defined in: core/dist/index.d.ts:2730
 
 Create pipeline options for the Adapter.
 
@@ -284,36 +284,11 @@ The pipeline options for transforming the event.
 
 ***
 
-### onInit()
-
-> `protected` **onInit**(): `Promise`\<`void`\>
-
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:123](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliAdapter.ts#L123)
-
-Initializes the adapter and validates its execution context.
-
-Ensures the adapter is running in an Node Cli environment. If not, it
-throws an error to prevent misuse.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Throws
-
-If executed outside an Node Cli context (e.g., browser).
-
-#### Overrides
-
-`Adapter.onInit`
-
-***
-
 ### onPrepare()
 
 > `protected` **onPrepare**(`eventHandler`): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2668
+Defined in: core/dist/index.d.ts:2697
 
 Hook that runs before preparing the event context.
 
@@ -335,11 +310,54 @@ Action handler to be run.
 
 ***
 
+### onStart()
+
+> `protected` **onStart**(): `Promise`\<`void`\>
+
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:125](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/NodeCliAdapter.ts#L125)
+
+Initializes the adapter and validates its execution context.
+
+Ensures the adapter is running in an Node Cli environment. If not, it
+throws an error to prevent misuse.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Throws
+
+If executed outside an Node Cli context (e.g., browser).
+
+#### Overrides
+
+`Adapter.onStart`
+
+***
+
+### onStop()
+
+> `protected` **onStop**(): `Promise`\<`void`\>
+
+Defined in: core/dist/index.d.ts:2691
+
+Hook that runs just before shutting down the application.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`Adapter.onStop`
+
+***
+
 ### onTerminate()
 
 > `protected` **onTerminate**(`eventHandler`, `context`): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2688
+Defined in: core/dist/index.d.ts:2717
 
 Hook that runs after running the action handler.
 
@@ -371,7 +389,7 @@ The event context.
 
 > `protected` **prepareResponse**(`eventHandler`, `context`): `Promise`\<`IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`number`\>\>\>
 
-Defined in: core/dist/index.d.ts:2716
+Defined in: core/dist/index.d.ts:2745
 
 Prepare the response for the event handler.
 
@@ -405,7 +423,7 @@ The raw response wrapper.
 
 > `protected` **resolveErrorHandler**(`error`): `IAdapterErrorHandler`\<[`NodeCliEvent`](../../declarations/interfaces/NodeCliEvent.md), `number`, [`CommandBuilder`](../../declarations/type-aliases/CommandBuilder.md)\>
 
-Defined in: core/dist/index.d.ts:2708
+Defined in: core/dist/index.d.ts:2737
 
 Get the error handler for the given error.
 
@@ -433,7 +451,7 @@ The error handler.
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:103](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliAdapter.ts#L103)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:103](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/NodeCliAdapter.ts#L103)
 
 Executes the adapter and provides an Node Cli-compatible handler function.
 
@@ -465,7 +483,7 @@ If used outside the Node Cli environment.
 
 > `protected` **sendEventThroughDestination**(`eventHandler`, `context`): `Promise`\<`number`\>
 
-Defined in: core/dist/index.d.ts:2658
+Defined in: core/dist/index.d.ts:2683
 
 Incoming message listener.
 
@@ -497,7 +515,7 @@ Platform-specific output.
 
 > `static` **create**(`options`): [`NodeCliAdapter`](NodeCliAdapter.md)
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:81](https://github.com/stonemjs/node-cli-adapter/blob/4ca37b2b0c5fee68c5c4db257f745b084b64de79/src/NodeCliAdapter.ts#L81)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:81](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/NodeCliAdapter.ts#L81)
 
 Creates an instance of the `NodeCliAdapter`.
 
