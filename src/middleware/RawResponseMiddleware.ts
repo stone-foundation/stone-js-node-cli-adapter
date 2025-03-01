@@ -2,7 +2,6 @@ import { NextPipe } from '@stone-js/pipeline'
 import { COMMAND_NOT_FOUND_CODE } from '../constants'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
 import { NodeCliAdapterContext, NodeCliAdapterResponseBuilder } from '../declarations'
-import { classMiddleware } from '@stone-js/core'
 
 /**
  * Middleware for handling raw responses in the Node CLI adapter.
@@ -36,4 +35,4 @@ export class RawResponseMiddleware {
 /**
  * Meta Middleware for processing outgoing responses.
  */
-export const MetaRawResponseMiddleware = classMiddleware(RawResponseMiddleware)
+export const MetaRawResponseMiddleware = { module: RawResponseMiddleware, isClass: true }

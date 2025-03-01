@@ -13,4 +13,4 @@
 ## Functions
 
 - [CommandMiddleware](functions/CommandMiddleware.md)
-- [SetResponseResolverMiddleware](functions/SetResponseResolverMiddleware.md)
+- [SetNodeCliResponseResolverMiddleware](functions/SetNodeCliResponseResolverMiddleware.md)

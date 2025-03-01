@@ -8,7 +8,7 @@
 
 > `const` **nodeCliAdapterBlueprint**: [`NodeCliAdapterBlueprint`](../interfaces/NodeCliAdapterBlueprint.md)
 
-Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:50](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/options/NodeCliAdapterBlueprint.ts#L50)
+Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:49](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/options/NodeCliAdapterBlueprint.ts#L49)
 
 Default blueprint configuration for the Node Cli Adapter.
 

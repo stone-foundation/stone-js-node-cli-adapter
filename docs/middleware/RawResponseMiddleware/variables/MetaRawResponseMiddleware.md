@@ -6,8 +6,18 @@
 
 # Variable: MetaRawResponseMiddleware
 
-> `const` **MetaRawResponseMiddleware**: `MetaMiddleware`\<`IncomingEvent`, `OutgoingResponse`\>
+> `const` **MetaRawResponseMiddleware**: `object`
 
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/middleware/RawResponseMiddleware.ts#L39)
+Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/middleware/RawResponseMiddleware.ts#L38)
 
 Meta Middleware for processing outgoing responses.
+
+## Type declaration
+
+### isClass
+
+> **isClass**: `boolean` = `true`
+
+### module
+
+> **module**: *typeof* [`RawResponseMiddleware`](../classes/RawResponseMiddleware.md) = `RawResponseMiddleware`

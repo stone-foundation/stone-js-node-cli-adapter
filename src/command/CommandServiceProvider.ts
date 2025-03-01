@@ -5,9 +5,8 @@ import { CommandInput } from './CommandInput'
 import { CommandOutput } from './CommandOutput'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { Container } from '@stone-js/service-container'
-import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
+import { IBlueprint, IServiceProvider } from '@stone-js/core'
 import { CommandRouterEventHandler } from './CommandRouterEventHandler'
-import { IBlueprint, IncomingEvent, IServiceProvider, OutgoingResponse } from '@stone-js/core'
 
 /**
  * CommandServiceProvider options.
@@ -24,7 +23,7 @@ export interface CommandServiceProviderOptions {
  * @author
  * Mr. Stone <evensstone@gmail.com>
  */
-export class CommandServiceProvider implements IServiceProvider<IncomingEvent, OutgoingResponse> {
+export class CommandServiceProvider implements IServiceProvider {
   /**
    * Blueprint configuration used to retrieve app settings.
    */
@@ -41,9 +40,6 @@ export class CommandServiceProvider implements IServiceProvider<IncomingEvent, O
    * @param container - The container instance for dependency resolution.
    */
   constructor ({ container, blueprint }: CommandServiceProviderOptions) {
-    if (container === undefined) { throw new NodeCliAdapterError('Container is required to create a CoreServiceProvider instance.') }
-    if (blueprint === undefined) { throw new NodeCliAdapterError('Blueprint is required to create a CoreServiceProvider instance.') }
-
     this.container = container
     this.blueprint = blueprint
   }
@@ -59,20 +55,21 @@ export class CommandServiceProvider implements IServiceProvider<IncomingEvent, O
   }
 
   /**
-   * Prepares the provider for service registration.
-   */
-  onPrepare (): void {
-    this.blueprint.set(
-      'stone.handler',
-      { module: CommandRouterEventHandler, isClass: true }
-    )
-  }
-
-  /**
    * Registers router components and application commands in the service container.
    */
   register (): void {
+    this.setEventHandler()
     this.registerCommandUtils()
+  }
+
+  /**
+   * Sets the event handler for the command service provider.
+   */
+  private setEventHandler (): void {
+    this.blueprint.set(
+      'stone.kernel.eventHandler',
+      { module: CommandRouterEventHandler, isClass: true }
+    )
   }
 
   /**

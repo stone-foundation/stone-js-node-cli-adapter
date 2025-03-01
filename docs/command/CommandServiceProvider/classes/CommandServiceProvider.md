@@ -6,7 +6,7 @@
 
 # Class: CommandServiceProvider
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L27)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:26](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/command/CommandServiceProvider.ts#L26)
 
 Class representing a CommandServiceProvider.
 Responsible for registering router and application commands.
@@ -17,7 +17,7 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Implements
 
-- `IServiceProvider`\<`IncomingEvent`, `OutgoingResponse`\>
+- `IServiceProvider`
 
 ## Constructors
 
@@ -25,7 +25,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new CommandServiceProvider**(`container`): [`CommandServiceProvider`](CommandServiceProvider.md)
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:43](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L43)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:42](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/command/CommandServiceProvider.ts#L42)
 
 Create a new instance of CommandServiceProvider.
 
@@ -47,7 +47,7 @@ The container instance for dependency resolution.
 
 > **mustSkip**(): `boolean`
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:57](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L57)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:53](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/command/CommandServiceProvider.ts#L53)
 
 Determines if this provider should be skipped.
 Useful for registering the provider based on platform.
@@ -64,29 +64,11 @@ True if the provider should be skipped; otherwise, false.
 
 ***
 
-### onPrepare()
-
-> **onPrepare**(): `void`
-
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:64](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L64)
-
-Prepares the provider for service registration.
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-`IServiceProvider.onPrepare`
-
-***
-
 ### register()
 
 > **register**(): `void`
 
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:74](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/command/CommandServiceProvider.ts#L74)
+Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:60](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/command/CommandServiceProvider.ts#L60)
 
 Registers router components and application commands in the service container.
 

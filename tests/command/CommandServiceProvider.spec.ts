@@ -74,7 +74,7 @@ describe('CommandServiceProvider', () => {
 
   it('should set the kernel router resolver to the blueprint', () => {
     mockBlueprint.set = vi.fn((_key: string, resolver: Function) => resolver(mockContainer))
-    serviceProvider.onPrepare()
+    serviceProvider.onInit()
     expect(mockBlueprint.set).toHaveBeenCalledWith('stone.kernel.routerResolver', expect.any(Function))
   })
 

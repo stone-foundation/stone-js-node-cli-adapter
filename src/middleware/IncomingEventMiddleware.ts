@@ -1,5 +1,4 @@
 import { NextPipe } from '@stone-js/pipeline'
-import { classMiddleware } from '@stone-js/core'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
 import { NodeCliAdapterContext, NodeCliAdapterResponseBuilder } from '../declarations'
@@ -50,4 +49,4 @@ export class IncomingEventMiddleware {
 /**
  * Meta Middleware for processing incoming events.
  */
-export const MetaIncomingEventMiddleware = classMiddleware(IncomingEventMiddleware)
+export const MetaIncomingEventMiddleware = { module: IncomingEventMiddleware, isClass: true }

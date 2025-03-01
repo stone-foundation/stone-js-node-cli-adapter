@@ -6,7 +6,7 @@ import { CommandServiceProvider } from '../command/CommandServiceProvider'
 import { metaAdapterConfigMiddleware } from '../middleware/configMiddleware'
 import { MetaRawResponseMiddleware } from '../middleware/RawResponseMiddleware'
 import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
-import { AdapterConfig, AppConfig, IncomingEvent, StoneBlueprint } from '@stone-js/core'
+import { AdapterConfig, AppConfig, defaultKernelResolver, StoneBlueprint } from '@stone-js/core'
 
 /**
  * Configuration interface for the Node Cli Adapter.
@@ -17,7 +17,6 @@ import { AdapterConfig, AppConfig, IncomingEvent, StoneBlueprint } from '@stone-
  */
 export interface NodeCliAdapterAdapterConfig extends AdapterConfig {
   commands: MetaCommandHandler[]
-  incomingEvent?: typeof IncomingEvent
 }
 
 /**
@@ -57,16 +56,16 @@ export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
     ],
     adapters: [
       {
-        hooks: {},
         commands: [],
         current: false,
         default: false,
         platform: NODE_CONSOLE_PLATFORM,
-        resolver: nodeCliAdapterResolver,
         middleware: [
           MetaIncomingEventMiddleware,
           MetaRawResponseMiddleware
         ],
+        resolver: nodeCliAdapterResolver,
+        eventHandlerResolver: defaultKernelResolver,
         errorHandlers: {
           default: { module: NodeCliErrorHandler, isClass: true }
         }

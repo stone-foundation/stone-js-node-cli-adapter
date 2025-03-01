@@ -1,8 +1,17 @@
+import {
+  ClassType,
+  isNotEmpty,
+  IBlueprint,
+  hasMetadata,
+  getMetadata,
+  OutgoingResponse,
+  BlueprintContext,
+  OutgoingResponseOptions
+} from '@stone-js/core'
 import { MetaCommandHandler } from '../declarations'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { COMMAND_KEY } from '../decorators/constants'
 import { MetaPipe, NextPipe } from '@stone-js/pipeline'
-import { ConfigContext, IBlueprint, ClassType, hasMetadata, getMetadata, OutgoingResponse, OutgoingResponseOptions, isNotEmpty } from '@stone-js/core'
 
 /**
  * Middleware to process and register modules as command handlers.
@@ -12,16 +21,17 @@ import { ConfigContext, IBlueprint, ClassType, hasMetadata, getMetadata, Outgoin
  * @returns The updated blueprint or a promise resolving to it.
  */
 export const CommandMiddleware = async (
-  context: ConfigContext<IBlueprint, ClassType>,
-  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+  context: BlueprintContext<IBlueprint, ClassType>,
+  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
 ): Promise<IBlueprint> => {
-  context
-    .modules
-    .filter(module => hasMetadata(module, COMMAND_KEY))
-    .forEach(module => {
-      const options = getMetadata<ClassType, MetaCommandHandler>(module, COMMAND_KEY)
-      isNotEmpty(options) && context.blueprint.add('stone.adapter.commands', [{ ...options, module }])
-    })
+  if (context.blueprint.get<string>('stone.adapter.platform') === NODE_CONSOLE_PLATFORM) {
+    context.modules
+      .filter(module => hasMetadata(module, COMMAND_KEY))
+      .forEach(module => {
+        const options = getMetadata<ClassType, MetaCommandHandler>(module, COMMAND_KEY)
+        isNotEmpty(options) && context.blueprint.add('stone.adapter.commands', [{ ...options, module }])
+      })
+  }
 
   return await next(context)
 }
@@ -35,14 +45,15 @@ export const CommandMiddleware = async (
  *
  * @example
  * ```typescript
- * SetResponseResolverMiddleware(context, next)
+ * SetNodeCliResponseResolverMiddleware(context, next)
  * ```
  */
-export const SetResponseResolverMiddleware = async (
-  context: ConfigContext<IBlueprint, ClassType>,
-  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+export const SetNodeCliResponseResolverMiddleware = async (
+  context: BlueprintContext<IBlueprint, ClassType>,
+  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
 ): Promise<IBlueprint> => {
   if (context.blueprint.get<string>('stone.adapter.platform') === NODE_CONSOLE_PLATFORM) {
+    context.blueprint.set('stone.kernel.skipMiddleware', true)
     context.blueprint.set(
       'stone.kernel.responseResolver',
       (options: OutgoingResponseOptions) => OutgoingResponse.create({ statusCode: 0, ...options })
@@ -58,7 +69,7 @@ export const SetResponseResolverMiddleware = async (
  * This array defines a list of middleware pipes, each with a `pipe` function and a `priority`.
  * These pipes are executed in the order of their priority values, with lower values running first.
  */
-export const metaAdapterConfigMiddleware: Array<MetaPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>> = [
+export const metaAdapterConfigMiddleware: Array<MetaPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>> = [
   { module: CommandMiddleware, priority: 1 },
-  { module: SetResponseResolverMiddleware, priority: 6 }
+  { module: SetNodeCliResponseResolverMiddleware, priority: 6 }
 ]

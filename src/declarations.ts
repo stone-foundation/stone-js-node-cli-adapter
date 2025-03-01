@@ -1,6 +1,3 @@
-import { Argv } from 'yargs'
-import { CommandOptions } from './decorators/Command'
-import { RawResponseWrapper } from './RawResponseWrapper'
 import {
   IContainer,
   IncomingEvent,
@@ -11,6 +8,9 @@ import {
   IncomingEventOptions,
   FunctionalEventHandler
 } from '@stone-js/core'
+import { Argv } from 'yargs'
+import { CommandOptions } from './decorators/Command'
+import { RawResponseWrapper } from './RawResponseWrapper'
 
 /**
  * Represents a generic raw response as a number.

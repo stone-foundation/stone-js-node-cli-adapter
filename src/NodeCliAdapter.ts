@@ -1,12 +1,3 @@
-import { hideBin } from 'yargs/helpers'
-import { argv, exit } from 'node:process'
-import yargs, { BuilderCallback } from 'yargs'
-// @ts-expect-error - This import is handled by @rollup/plugin-json
-import { version } from '../package.json'
-import { COMMAND_NOT_FOUND_CODE } from './constants'
-import { CommandOptions } from './decorators/Command'
-import { RawResponseWrapper } from './RawResponseWrapper'
-import { NodeCliAdapterError } from './errors/NodeCliAdapterError'
 import {
   RawResponse,
   NodeCliEvent,
@@ -16,14 +7,22 @@ import {
 } from './declarations'
 import {
   Adapter,
+  IBlueprint,
   IncomingEvent,
-  AdapterOptions,
   OutgoingResponse,
   RawResponseOptions,
   AdapterEventBuilder,
-  IncomingEventOptions,
-  LifecycleAdapterEventHandler
+  IncomingEventOptions
 } from '@stone-js/core'
+import { hideBin } from 'yargs/helpers'
+// @ts-expect-error - This import is handled by @rollup/plugin-json
+import { version } from '../package.json'
+import { argv, exit } from 'node:process'
+import yargs, { BuilderCallback } from 'yargs'
+import { COMMAND_NOT_FOUND_CODE } from './constants'
+import { CommandOptions } from './decorators/Command'
+import { RawResponseWrapper } from './RawResponseWrapper'
+import { NodeCliAdapterError } from './errors/NodeCliAdapterError'
 
 /**
  * Node Cli Adapter for Stone.js.
@@ -70,16 +69,17 @@ NodeCliAdapterContext
   /**
    * Creates an instance of the `NodeCliAdapter`.
    *
-   * This factory method allows developers to instantiate the adapter with
-   * the necessary configuration options, ensuring it is correctly set up for
-   * Node Cli usage.
+   * @param blueprint - The application blueprint.
+   * @returns A new instance of `NodeCliAdapter`.
    *
-   * @param options - The configuration options for the adapter, including
-   *                  handler resolver, error handling, and other settings.
-   * @returns A fully initialized `NodeCliAdapter` instance.
+   * @example
+   * ```typescript
+   * const adapter = NodeCliAdapter.create(blueprint);
+   * await adapter.run();
+   * ```
    */
-  static create (options: AdapterOptions<IncomingEvent, OutgoingResponse>): NodeCliAdapter {
-    return new this(options)
+  static create (blueprint: IBlueprint): NodeCliAdapter {
+    return new this(blueprint)
   }
 
   /**
@@ -107,7 +107,7 @@ NodeCliAdapterContext
     const rawEvent = await this.registerAppCommands(executionContext).makeRawEvent(executionContext)
     const response = await this.eventListener(rawEvent, executionContext)
 
-    await this.onStop()
+    await this.executeHooks('onStop')
 
     response === COMMAND_NOT_FOUND_CODE && executionContext.showHelp()
 
@@ -129,7 +129,7 @@ NodeCliAdapterContext
       )
     }
 
-    await super.onStart()
+    await this.executeHooks('onStart')
   }
 
   /**
@@ -143,13 +143,8 @@ NodeCliAdapterContext
    * @returns A promise resolving to the processed `RawResponse`.
    */
   protected async eventListener (rawEvent: NodeCliEvent, executionContext: NodeCliExecutionContext): Promise<RawResponse> {
-    const incomingEvent = this.blueprint.get('stone.adapter.incomingEvent', IncomingEvent)
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
-
-    await this.onPrepare(eventHandler)
-
     const incomingEventBuilder = AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({
-      resolver: (options) => incomingEvent.create(options)
+      resolver: (options) => IncomingEvent.create(options)
     })
 
     const rawResponseBuilder = AdapterEventBuilder.create<RawResponseOptions, RawResponseWrapper>({
@@ -158,13 +153,22 @@ NodeCliAdapterContext
 
     const rawResponse: RawResponse = 0
 
-    return await this.sendEventThroughDestination(eventHandler, {
+    const context: NodeCliAdapterContext = {
       rawEvent,
       rawResponse,
       executionContext,
       rawResponseBuilder,
       incomingEventBuilder
-    })
+    }
+
+    try {
+      const eventHandler = this.resolveEventHandler()
+      await this.executeEventHandlerHooks('onInit', eventHandler)
+      return await this.sendEventThroughDestination(context, eventHandler)
+    } catch (error: any) {
+      const rawResponseBuilder = await this.handleError(error, context)
+      return await this.buildRawResponse({ ...context, rawResponseBuilder })
+    }
   }
 
   /**

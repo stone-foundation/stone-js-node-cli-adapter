@@ -8,7 +8,7 @@
 
 > **CommandMiddleware**(`context`, `next`): `Promise`\<`IBlueprint`\>
 
-Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/middleware/configMiddleware.ts#L14)
+Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/middleware/configMiddleware.ts#L23)
 
 Middleware to process and register modules as command handlers.
 
@@ -16,13 +16,13 @@ Middleware to process and register modules as command handlers.
 
 ### context
 
-`ConfigContext`\<`IBlueprint`, `ClassType`\>
+`BlueprintContext`\<`IBlueprint`, `ClassType`\>
 
 The configuration context containing the modules and blueprint.
 
 ### next
 
-`NextPipe`\<`ConfigContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>
+`NextPipe`\<`BlueprintContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>
 
 The next middleware in the pipeline to call.
 

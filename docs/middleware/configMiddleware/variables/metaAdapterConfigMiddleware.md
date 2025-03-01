@@ -6,9 +6,9 @@
 
 # Variable: metaAdapterConfigMiddleware
 
-> `const` **metaAdapterConfigMiddleware**: `MetaPipe`\<`ConfigContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>[]
+> `const` **metaAdapterConfigMiddleware**: `MetaPipe`\<`BlueprintContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>[]
 
-Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:61](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/middleware/configMiddleware.ts#L61)
+Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:72](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/middleware/configMiddleware.ts#L72)
 
 Configuration for adapter processing middleware.
 

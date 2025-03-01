@@ -6,8 +6,18 @@
 
 # Variable: MetaIncomingEventMiddleware
 
-> `const` **MetaIncomingEventMiddleware**: `MetaMiddleware`\<`IncomingEvent`, `OutgoingResponse`\>
+> `const` **MetaIncomingEventMiddleware**: `object`
 
-Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:53](https://github.com/stonemjs/node-cli-adapter/blob/8aa5733b805725e9383f05513594f3738beb3cb2/src/middleware/IncomingEventMiddleware.ts#L53)
+Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:52](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/middleware/IncomingEventMiddleware.ts#L52)
 
 Meta Middleware for processing incoming events.
+
+## Type declaration
+
+### isClass
+
+> **isClass**: `boolean` = `true`
+
+### module
+
+> **module**: *typeof* [`IncomingEventMiddleware`](../classes/IncomingEventMiddleware.md) = `IncomingEventMiddleware`
