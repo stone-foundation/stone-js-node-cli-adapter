@@ -8,7 +8,7 @@
 
 > `const` **MetaRawResponseMiddleware**: `object`
 
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/middleware/RawResponseMiddleware.ts#L38)
+Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/middleware/RawResponseMiddleware.ts#L38)
 
 Meta Middleware for processing outgoing responses.
 

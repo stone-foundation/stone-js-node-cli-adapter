@@ -13,3 +13,7 @@
 ## Interfaces
 
 - [CommandRouterEventHandlerOptions](interfaces/CommandRouterEventHandlerOptions.md)
+
+## Variables
+
+- [MetaCommandRouterEventHandler](variables/MetaCommandRouterEventHandler.md)

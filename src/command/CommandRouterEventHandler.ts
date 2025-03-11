@@ -161,3 +161,8 @@ export class CommandRouterEventHandler<
     }
   }
 }
+
+/**
+ * MetaCommandRouterEventHandler module.
+ */
+export const MetaCommandRouterEventHandler = { module: CommandRouterEventHandler, isClass: true }

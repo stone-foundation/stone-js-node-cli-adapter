@@ -6,7 +6,7 @@
 
 # Interface: ICommandHandler\<W, X\>
 
-Defined in: [node-cli-adapter/src/declarations.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/declarations.ts#L46)
+Defined in: [node-cli-adapter/src/declarations.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L46)
 
 Represents the CommandHandler function for the Node Cli Adapter.
 
@@ -22,7 +22,7 @@ Represents the CommandHandler function for the Node Cli Adapter.
 
 > **handle**: `FunctionalEventHandler`\<`W`, `X`\>
 
-Defined in: [node-cli-adapter/src/declarations.ts:50](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/declarations.ts#L50)
+Defined in: [node-cli-adapter/src/declarations.ts:50](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L50)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [node-cli-adapter/src/declarations.ts:50](https://github.com/stonemj
 
 > `optional` **match**: (`event`) => `boolean`
 
-Defined in: [node-cli-adapter/src/declarations.ts:51](https://github.com/stonemjs/node-cli-adapter/blob/3323167ff73e7c9f811f72d8b7db77f6e1756f38/src/declarations.ts#L51)
+Defined in: [node-cli-adapter/src/declarations.ts:51](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L51)
 
 #### Parameters
 

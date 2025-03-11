@@ -14,10 +14,10 @@ import {
   AdapterEventBuilder,
   IncomingEventOptions
 } from '@stone-js/core'
+import { argv } from 'node:process'
 import { hideBin } from 'yargs/helpers'
 // @ts-expect-error - This import is handled by @rollup/plugin-json
 import { version } from '../package.json'
-import { argv, exit } from 'node:process'
 import yargs, { BuilderCallback } from 'yargs'
 import { COMMAND_NOT_FOUND_CODE } from './constants'
 import { CommandOptions } from './decorators/Command'
@@ -111,7 +111,7 @@ NodeCliAdapterContext
 
     response === COMMAND_NOT_FOUND_CODE && executionContext.showHelp()
 
-    return exit(response)
+    return response as ExecutionResultType
   }
 
   /**
