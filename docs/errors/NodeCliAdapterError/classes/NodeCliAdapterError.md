@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [errors/NodeCliAdapterError](../README.md) / NodeCliAdapterError
+[Node CLI Adapter Documentation](../../../README.md) / [errors/NodeCliAdapterError](../README.md) / NodeCliAdapterError
 
 # Class: NodeCliAdapterError
 
-Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:6](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/errors/NodeCliAdapterError.ts#L6)
+Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:6](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/errors/NodeCliAdapterError.ts#L6)
 
 Custom error for Node CLI adapter operations.
 
@@ -18,9 +18,9 @@ Custom error for Node CLI adapter operations.
 
 ### new NodeCliAdapterError()
 
-> **new NodeCliAdapterError**(`message`, `options`?): [`NodeCliAdapterError`](NodeCliAdapterError.md)
+> **new NodeCliAdapterError**(`message`, `options`?): `NodeCliAdapterError`
 
-Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/errors/NodeCliAdapterError.ts#L7)
+Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/errors/NodeCliAdapterError.ts#L7)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://githu
 
 #### Returns
 
-[`NodeCliAdapterError`](NodeCliAdapterError.md)
+`NodeCliAdapterError`
 
 #### Overrides
 
@@ -46,7 +46,7 @@ Defined in: [node-cli-adapter/src/errors/NodeCliAdapterError.ts:7](https://githu
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: core/dist/index.d.ts:2914
+Defined in: core/dist/index.d.ts:3343
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: core/dist/index.d.ts:2914
 
 > `readonly` `optional` **code**: `string`
 
-Defined in: core/dist/index.d.ts:2913
+Defined in: core/dist/index.d.ts:3342
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: core/dist/index.d.ts:2913
 
 > `readonly` `optional` **metadata**: `unknown`
 
-Defined in: core/dist/index.d.ts:2915
+Defined in: core/dist/index.d.ts:3344
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: core/dist/index.d.ts:2915
 
 > **toString**(`multiline`?): `string`
 
-Defined in: core/dist/index.d.ts:2936
+Defined in: core/dist/index.d.ts:3365
 
 Converts the error to a formatted string representation.
 
@@ -110,13 +110,15 @@ A formatted error string.
 
 > `static` **create**\<`T`\>(`message`, `options`?): `T`
 
-Defined in: core/dist/index.d.ts:2922
+Defined in: core/dist/index.d.ts:3351
 
 Create a RuntimeError.
 
 #### Type Parameters
 
-• **T** *extends* `RuntimeError` = `RuntimeError`
+##### T
+
+`T` *extends* `RuntimeError` = `RuntimeError`
 
 #### Parameters
 

@@ -8,7 +8,7 @@ import { FactoryCommandHandler, MetaCommandHandler } from './declarations'
  * @param module - The CommandHandler module.
  * @returns The CommandHandler.
  */
-export const factoryCommand = <U extends IncomingEvent = IncomingEvent, V = unknown>(
+export const defineFactoryCommand = <U extends IncomingEvent = IncomingEvent, V = unknown>(
   module: FactoryCommandHandler<U, V>,
   options: CommandOptions
 ): MetaCommandHandler<U, V> => {

@@ -1,14 +1,14 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / CommandMiddleware
+[Node CLI Adapter Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / CommandMiddleware
 
 # Function: CommandMiddleware()
 
 > **CommandMiddleware**(`context`, `next`): `Promise`\<`IBlueprint`\>
 
-Defined in: [node-cli-adapter/src/middleware/configMiddleware.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/middleware/configMiddleware.ts#L23)
+Defined in: node-cli-adapter/src/middleware/BlueprintMiddleware.ts:23
 
 Middleware to process and register modules as command handlers.
 

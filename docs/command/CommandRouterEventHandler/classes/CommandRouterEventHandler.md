@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [command/CommandRouterEventHandler](../README.md) / CommandRouterEventHandler
+[Node CLI Adapter Documentation](../../../README.md) / [command/CommandRouterEventHandler](../README.md) / CommandRouterEventHandler
 
 # Class: CommandRouterEventHandler\<W, X\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L23)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:23](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L23)
 
 Class representing a CommandRouterEventHandler.
 Responsible for finding and dispatching commands based on incoming events.
@@ -17,9 +17,13 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Type Parameters
 
-• **W** *extends* `IncomingEvent` = `IncomingEvent`
+### W
 
-• **X** = `unknown`
+`W` *extends* `IncomingEvent` = `IncomingEvent`
+
+### X
+
+`X` = `unknown`
 
 ## Implements
 
@@ -29,9 +33,9 @@ Mr. Stone <evensstone@gmail.com>
 
 ### new CommandRouterEventHandler()
 
-> **new CommandRouterEventHandler**\<`W`, `X`\>(`container`): [`CommandRouterEventHandler`](CommandRouterEventHandler.md)\<`W`, `X`\>
+> **new CommandRouterEventHandler**\<`W`, `X`\>(`container`): `CommandRouterEventHandler`\<`W`, `X`\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:60](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L60)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:60](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L60)
 
 Create a new instance of CommandRouter.
 
@@ -45,7 +49,7 @@ The container instance for dependency resolution.
 
 #### Returns
 
-[`CommandRouterEventHandler`](CommandRouterEventHandler.md)\<`W`, `X`\>
+`CommandRouterEventHandler`\<`W`, `X`\>
 
 ## Methods
 
@@ -53,7 +57,7 @@ The container instance for dependency resolution.
 
 > **dispatch**(`event`): `Promise`\<`X`\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:90](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L90)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:90](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L90)
 
 Dispatches an event to the appropriate command.
 
@@ -77,7 +81,7 @@ The result of the command execution.
 
 > **findCommand**(`event`): `undefined` \| [`ICommandHandler`](../../../declarations/interfaces/ICommandHandler.md)\<`W`, `X`\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:100](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L100)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:100](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L100)
 
 Finds a command that matches the given event.
 
@@ -101,7 +105,7 @@ The matching command, or undefined if no match is found.
 
 > **handle**(`event`): `Promise`\<`X`\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:80](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L80)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:80](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L80)
 
 Handle an incoming event.
 
@@ -129,7 +133,7 @@ The outgoing response.
 
 > **runCommand**(`event`, `command`?): `Promise`\<`X`\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:116](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L116)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:116](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L116)
 
 Runs the given command with the provided event.
 
@@ -157,9 +161,9 @@ The result of the command execution, or void if no command is found.
 
 ### create()
 
-> `static` **create**\<`W`, `X`\>(`options`): [`CommandRouterEventHandler`](CommandRouterEventHandler.md)\<`W`, `X`\>
+> `static` **create**\<`W`, `X`\>(`options`): `CommandRouterEventHandler`\<`W`, `X`\>
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:48](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L48)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:48](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L48)
 
 Creates a new instance of `CommandRouter`.
 
@@ -167,11 +171,15 @@ This static method initializes a `CommandRouter` with the specified options.
 
 #### Type Parameters
 
-• **W** *extends* `IncomingEvent` = `IncomingEvent`
+##### W
+
+`W` *extends* `IncomingEvent` = `IncomingEvent`
 
 The type of the incoming event (default: `IncomingEvent`).
 
-• **X** *extends* `OutgoingResponse` = `OutgoingResponse`
+##### X
+
+`X` *extends* `OutgoingResponse` = `OutgoingResponse`
 
 The type of the outgoing response (default: `OutgoingResponse`).
 
@@ -185,6 +193,6 @@ The configuration options for the `CommandRouter`.
 
 #### Returns
 
-[`CommandRouterEventHandler`](CommandRouterEventHandler.md)\<`W`, `X`\>
+`CommandRouterEventHandler`\<`W`, `X`\>
 
 A new instance of `CommandRouter` configured with the provided options.

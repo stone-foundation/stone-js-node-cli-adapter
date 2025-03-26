@@ -3,8 +3,8 @@ import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { nodeCliAdapterResolver } from '../resolvers'
 import { NodeCliErrorHandler } from '../NodeCliErrorHandler'
 import { CommandServiceProvider } from '../command/CommandServiceProvider'
-import { metaAdapterConfigMiddleware } from '../middleware/configMiddleware'
 import { MetaRawResponseMiddleware } from '../middleware/RawResponseMiddleware'
+import { metaAdapterBlueprintMiddleware } from '../middleware/BlueprintMiddleware'
 import { MetaIncomingEventMiddleware } from '../middleware/IncomingEventMiddleware'
 import { AdapterConfig, AppConfig, defaultKernelResolver, StoneBlueprint } from '@stone-js/core'
 
@@ -48,8 +48,8 @@ export interface NodeCliAdapterBlueprint extends StoneBlueprint {
  */
 export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
   stone: {
-    builder: {
-      middleware: metaAdapterConfigMiddleware
+    blueprint: {
+      middleware: metaAdapterBlueprintMiddleware
     },
     providers: [
       CommandServiceProvider

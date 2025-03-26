@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [command/CommandOutput](../README.md) / CommandOutput
+[Node CLI Adapter Documentation](../../../README.md) / [command/CommandOutput](../README.md) / CommandOutput
 
 # Class: CommandOutput
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L18)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L18)
 
 Class representing a CommandOutput Facade.
 Provides utility methods for logging, colored outputs, spinners, and progress bars.
@@ -17,7 +17,7 @@ Provides utility methods for logging, colored outputs, spinners, and progress ba
 
 > `readonly` **format**: `ChalkInstance`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L22)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L22)
 
 A formatting library (e.g., `chalk`).
 
@@ -27,7 +27,7 @@ A formatting library (e.g., `chalk`).
 
 > **breakLine**(`value`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:84](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L84)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:84](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L84)
 
 Output a line break.
 
@@ -51,7 +51,7 @@ The current instance for chaining.
 
 > **error**(`value`, `color`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L108)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L108)
 
 Output error-colored text.
 
@@ -81,7 +81,7 @@ The current instance for chaining.
 
 > **info**(`value`, `color`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:96](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L96)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:96](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L96)
 
 Output info-colored text.
 
@@ -111,7 +111,7 @@ The current instance for chaining.
 
 > **progressBar**(`tokens`, `options`): `ProgressBar`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:164](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L164)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:164](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L164)
 
 Create a progress bar.
 
@@ -141,7 +141,7 @@ A new ProgressBar instance.
 
 > **show**(`value`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L62)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L62)
 
 Output uncolored text.
 
@@ -165,7 +165,7 @@ The current instance for chaining.
 
 > **spin**(`value`): `Ora`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:143](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L143)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:143](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L143)
 
 Output a spinner.
 
@@ -189,7 +189,7 @@ The spinner instance started.
 
 > **spinner**(`value`): `Ora`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:153](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L153)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:153](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L153)
 
 Creates a spinner instance.
 
@@ -213,7 +213,7 @@ The spinner instance.
 
 > **succeed**(`value`, `color`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:132](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L132)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:132](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L132)
 
 Output success-colored text.
 
@@ -243,7 +243,7 @@ The current instance for chaining.
 
 > **table**(`value`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L73)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L73)
 
 Output a table.
 
@@ -267,7 +267,7 @@ The current instance for chaining.
 
 > **warn**(`value`, `color`): `this`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:120](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L120)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:120](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L120)
 
 Output warn-colored text.
 
@@ -295,9 +295,9 @@ The current instance for chaining.
 
 ### create()
 
-> `static` **create**(`options`): [`CommandOutput`](CommandOutput.md)
+> `static` **create**(`options`): `CommandOutput`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandOutput.ts#L39)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L39)
 
 Create a CommandOutput instance.
 
@@ -311,4 +311,4 @@ The options for creating the CommandOutput instance.
 
 #### Returns
 
-[`CommandOutput`](CommandOutput.md)
+`CommandOutput`

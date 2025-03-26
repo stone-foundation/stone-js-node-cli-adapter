@@ -1,5 +1,5 @@
 import { COMMAND_KEY } from '../../src/decorators/constants'
-import { CommandMiddleware } from '../../src/middleware/configMiddleware'
+import { CommandMiddleware } from '../../src/middleware/BlueprintMiddleware'
 import { ClassType, ConfigContext, MetadataSymbol, MetadataHolder, IBlueprint } from '@stone-js/core'
 
 // Mock dependencies

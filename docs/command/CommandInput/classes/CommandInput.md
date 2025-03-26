@@ -1,15 +1,17 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [command/CommandInput](../README.md) / CommandInput
+[Node CLI Adapter Documentation](../../../README.md) / [command/CommandInput](../README.md) / CommandInput
 
 # Class: CommandInput
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L15)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:16](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L16)
 
 Class representing a CommandInput Facade.
-Handles user interactions through prompts, such as questions, confirmations, and choices.
+Provides a simplified and consistent API for prompting users in the terminal
+using the `prompts` library. Supports a variety of question types,
+such as text, number, confirm, password, select, multiselect, and more.
 
 ## Methods
 
@@ -17,9 +19,9 @@ Handles user interactions through prompts, such as questions, confirmations, and
 
 > **ask**(`message`, `fallback`?): `Promise`\<`string`\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:67](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L67)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L62)
 
-Asks a basic question with an optional fallback.
+Asks the user for a string input.
 
 #### Parameters
 
@@ -27,19 +29,19 @@ Asks a basic question with an optional fallback.
 
 `string`
 
-The message to display.
+The question to display to the user.
 
 ##### fallback?
 
 `string`
 
-The fallback value if no response is provided.
+An optional default value.
 
 #### Returns
 
 `Promise`\<`string`\>
 
-The user's response.
+The user's response as a string.
 
 ***
 
@@ -47,9 +49,9 @@ The user's response.
 
 > **askNumber**(`message`, `fallback`?): `Promise`\<`number`\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:78](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L78)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:77](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L77)
 
-Asks a numeric question with an optional fallback.
+Asks the user for a numeric input.
 
 #### Parameters
 
@@ -57,13 +59,13 @@ Asks a numeric question with an optional fallback.
 
 `string`
 
-The message to display.
+The question to display to the user.
 
 ##### fallback?
 
 `number`
 
-The fallback value if no response is provided.
+An optional default numeric value.
 
 #### Returns
 
@@ -77,9 +79,9 @@ The user's response as a number.
 
 > **choice**(`message`, `choices`, `fallbackIndex`, `multiple`): `Promise`\<`string` \| `string`[]\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:112](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L112)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:122](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L122)
 
-Asks the user to make a choice from a list.
+Asks the user to choose from a list of options.
 
 #### Parameters
 
@@ -87,31 +89,31 @@ Asks the user to make a choice from a list.
 
 `string`
 
-The message to display.
+The message to display to the user.
 
 ##### choices
 
-`string`[]
+`Choice`[]
 
-The array of choices to present.
+A list of string options to choose from.
 
 ##### fallbackIndex
 
 `number`[] = `...`
 
-The default selected index if no response is provided.
+An array of fallback selected indices (default is first).
 
 ##### multiple
 
 `boolean` = `false`
 
-Whether to allow multiple selections.
+Whether to allow multiple selections (checkbox style).
 
 #### Returns
 
 `Promise`\<`string` \| `string`[]\>
 
-The user's response.
+The user's selection(s) as a string or array of strings.
 
 ***
 
@@ -119,9 +121,9 @@ The user's response.
 
 > **confirm**(`message`, `fallback`): `Promise`\<`boolean`\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:99](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L99)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:105](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L105)
 
-Asks for a confirmation.
+Asks the user for a yes/no confirmation.
 
 #### Parameters
 
@@ -129,13 +131,13 @@ Asks for a confirmation.
 
 `string`
 
-The message to display.
+The confirmation message to show.
 
 ##### fallback
 
 `boolean` = `false`
 
-The fallback value if no response is provided.
+The default value if the user provides no response (defaults to false).
 
 #### Returns
 
@@ -149,9 +151,10 @@ The user's response as a boolean.
 
 > **editor**(`message`, `fallback`?): `Promise`\<`string`\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:133](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L133)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:144](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L144)
 
-Opens an editor for the user to input text.
+Opens a pseudo-editor by asking the user to input a multi-line value in the terminal.
+(Note: actual editor support is limited in `prompts`, so this simulates one via text input).
 
 #### Parameters
 
@@ -159,13 +162,13 @@ Opens an editor for the user to input text.
 
 `string`
 
-The message to display.
+The message to display to the user.
 
 ##### fallback?
 
 `string`
 
-The fallback value if no response is provided.
+An optional default value.
 
 #### Returns
 
@@ -179,51 +182,29 @@ The user's response as a string.
 
 > **prompt**\<`T`\>(`question`): `Promise`\<`T`\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:56](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L56)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:47](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L47)
 
-Prompts the user with a single question.
+Prompts the user with a single question and returns the response.
 
 #### Type Parameters
 
-• **T**
+##### T
+
+`T`
 
 #### Parameters
 
 ##### question
 
-`UnnamedDistinctQuestion`\<`Answers` & `object`\> & `object`
+`Omit`\<`PromptObject`\<`string`\>, `"name"`\>
 
-The question object to display.
+A prompt object without a `name`, which will be set to 'value'.
 
 #### Returns
 
 `Promise`\<`T`\>
 
-The user's response.
-
-***
-
-### questionnaire()
-
-> **questionnaire**(`questions`): `PromptReturnType`\<`Answers`\>
-
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L46)
-
-Displays a questionnaire.
-
-#### Parameters
-
-##### questions
-
-`UnnamedDistinctQuestion`\<`Answers` & `object`\> & `object`[]
-
-An array of question objects to be displayed.
-
-#### Returns
-
-`PromptReturnType`\<`Answers`\>
-
-The response from the prompt.
+The user's input cast to the specified type.
 
 ***
 
@@ -231,9 +212,9 @@ The response from the prompt.
 
 > **secret**(`message`): `Promise`\<`string`\>
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:88](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L88)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:91](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L91)
 
-Asks for a secret input (e.g., password).
+Asks the user for a hidden (secret) input such as a password.
 
 #### Parameters
 
@@ -241,23 +222,23 @@ Asks for a secret input (e.g., password).
 
 `string`
 
-The message to display.
+The message to display to the user.
 
 #### Returns
 
 `Promise`\<`string`\>
 
-The user's response as a string.
+The user's input as a string.
 
 ***
 
 ### create()
 
-> `static` **create**(`options`): [`CommandInput`](CommandInput.md)
+> `static` **create**(`options`): `CommandInput`
 
-Defined in: [node-cli-adapter/src/command/CommandInput.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandInput.ts#L27)
+Defined in: [node-cli-adapter/src/command/CommandInput.ts:28](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandInput.ts#L28)
 
-Create a CommandInput instance.
+Factory method to create a new CommandInput instance.
 
 #### Parameters
 
@@ -265,8 +246,10 @@ Create a CommandInput instance.
 
 [`CommandInputOptions`](../interfaces/CommandInputOptions.md)
 
-The options for creating the CommandInput instance.
+The options to configure the CommandInput instance.
 
 #### Returns
 
-[`CommandInput`](CommandInput.md)
+`CommandInput`
+
+A new instance of CommandInput.

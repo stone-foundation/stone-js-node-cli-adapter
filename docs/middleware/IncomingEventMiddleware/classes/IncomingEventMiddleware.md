@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [middleware/IncomingEventMiddleware](../README.md) / IncomingEventMiddleware
+[Node CLI Adapter Documentation](../../../README.md) / [middleware/IncomingEventMiddleware](../README.md) / IncomingEventMiddleware
 
 # Class: IncomingEventMiddleware
 
-Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/middleware/IncomingEventMiddleware.ts#L11)
+Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/middleware/IncomingEventMiddleware.ts#L11)
 
 Middleware for handling incoming events in the Node CLI adapter.
 
@@ -16,11 +16,11 @@ This middleware processes the incoming event and prepares it for the next middle
 
 ### new IncomingEventMiddleware()
 
-> **new IncomingEventMiddleware**(): [`IncomingEventMiddleware`](IncomingEventMiddleware.md)
+> **new IncomingEventMiddleware**(): `IncomingEventMiddleware`
 
 #### Returns
 
-[`IncomingEventMiddleware`](IncomingEventMiddleware.md)
+`IncomingEventMiddleware`
 
 ## Methods
 
@@ -28,7 +28,7 @@ This middleware processes the incoming event and prepares it for the next middle
 
 > **handle**(`context`, `next`): `Promise`\<[`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
 
-Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/middleware/IncomingEventMiddleware.ts#L20)
+Defined in: [node-cli-adapter/src/middleware/IncomingEventMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/middleware/IncomingEventMiddleware.ts#L20)
 
 Handles the incoming event, processes it, and invokes the next middleware in the pipeline.
 

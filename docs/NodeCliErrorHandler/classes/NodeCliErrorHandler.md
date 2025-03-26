@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
+[**Node CLI Adapter Documentation**](../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../modules.md) / [NodeCliErrorHandler](../README.md) / NodeCliErrorHandler
+[Node CLI Adapter Documentation](../../README.md) / [NodeCliErrorHandler](../README.md) / NodeCliErrorHandler
 
 # Class: NodeCliErrorHandler
 
-Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/NodeCliErrorHandler.ts#L22)
+Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliErrorHandler.ts#L22)
 
 Class representing an NodeCliErrorHandler.
 
@@ -18,9 +18,9 @@ Class representing an NodeCliErrorHandler.
 
 ### new NodeCliErrorHandler()
 
-> **new NodeCliErrorHandler**(`options`): [`NodeCliErrorHandler`](NodeCliErrorHandler.md)
+> **new NodeCliErrorHandler**(`options`): `NodeCliErrorHandler`
 
-Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:30](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/NodeCliErrorHandler.ts#L30)
+Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:30](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliErrorHandler.ts#L30)
 
 Create an NodeCliErrorHandler.
 
@@ -34,7 +34,7 @@ NodeCliErrorHandler options.
 
 #### Returns
 
-[`NodeCliErrorHandler`](NodeCliErrorHandler.md)
+`NodeCliErrorHandler`
 
 ## Methods
 
@@ -42,7 +42,7 @@ NodeCliErrorHandler options.
 
 > **handle**(`error`, `context`): `AdapterEventBuilderType`\<`number`\>
 
-Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:41](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/NodeCliErrorHandler.ts#L41)
+Defined in: [node-cli-adapter/src/NodeCliErrorHandler.ts:41](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliErrorHandler.ts#L41)
 
 Handle an error.
 

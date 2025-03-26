@@ -1,136 +1,151 @@
-import inquirer from 'inquirer'
-import { Answers, UnnamedDistinctQuestion } from 'inquirer/dist/commonjs/types'
+import prompts, { Choice, PromptObject } from 'prompts'
 
 /**
  * CommandInputOptions
  */
 export interface CommandInputOptions {
-  prompt: typeof inquirer['prompt']
+  prompts: typeof prompts
 }
 
 /**
  * Class representing a CommandInput Facade.
- * Handles user interactions through prompts, such as questions, confirmations, and choices.
+ * Provides a simplified and consistent API for prompting users in the terminal
+ * using the `prompts` library. Supports a variety of question types,
+ * such as text, number, confirm, password, select, multiselect, and more.
  */
 export class CommandInput {
   /**
-   * A reference to the `prompt` method from the `inquirer` library.
-   * This property is used to prompt the user for input in the command line interface.
+   * A reference to the `prompts` function used to interact with users.
    */
-  private readonly _prompt: typeof inquirer['prompt']
+  private readonly _prompts: typeof prompts
 
   /**
-   * Create a CommandInput instance.
+   * Factory method to create a new CommandInput instance.
    *
-   * @param options - The options for creating the CommandInput instance.
+   * @param options - The options to configure the CommandInput instance.
+   * @returns A new instance of CommandInput.
    */
   static create (options: CommandInputOptions): CommandInput {
     return new this(options)
   }
 
   /**
-   * Create a CommandInput instance.
+   * Constructor for creating a CommandInput instance.
    *
-   * @param options - The options for creating the CommandInput instance.
+   * @param options - The configuration for the instance.
    */
-  private constructor ({ prompt }: CommandInputOptions) {
-    this._prompt = prompt
+  private constructor ({ prompts }: CommandInputOptions) {
+    this._prompts = prompts
   }
 
   /**
-   * Displays a questionnaire.
+   * Prompts the user with a single question and returns the response.
    *
-   * @param questions - An array of question objects to be displayed.
-   * @returns The response from the prompt.
+   * @param question - A prompt object without a `name`, which will be set to 'value'.
+   * @returns The user's input cast to the specified type.
    */
-  questionnaire (questions: Array<UnnamedDistinctQuestion<Answers & object> & { name: string }>): ReturnType<typeof inquirer['prompt']> {
-    return this._prompt(questions)
+  async prompt<T>(question: Omit<PromptObject, 'name'>): Promise<T> {
+    const result = await this._prompts({
+      ...question,
+      name: 'value'
+    })
+    return result.value
   }
 
   /**
-   * Prompts the user with a single question.
+   * Asks the user for a string input.
    *
-   * @param question - The question object to display.
-   * @returns The user's response.
-   */
-  async prompt<T>(question: (UnnamedDistinctQuestion<Answers & object> & { name?: string })): Promise<T> {
-    return (await this.questionnaire([{ ...question, name: 'value' }])).value as T
-  }
-
-  /**
-   * Asks a basic question with an optional fallback.
-   *
-   * @param message - The message to display.
-   * @param fallback - The fallback value if no response is provided.
-   * @returns The user's response.
-   */
-  async ask (message: string, fallback?: string): Promise<string> {
-    return await this.prompt<string>({ type: 'input', message, default: fallback })
-  }
-
-  /**
-   * Asks a numeric question with an optional fallback.
-   *
-   * @param message - The message to display.
-   * @param fallback - The fallback value if no response is provided.
-   * @returns The user's response as a number.
-   */
-  async askNumber (message: string, fallback?: number): Promise<number> {
-    return await this.prompt<number>({ type: 'number', message, default: fallback })
-  }
-
-  /**
-   * Asks for a secret input (e.g., password).
-   *
-   * @param message - The message to display.
+   * @param message - The question to display to the user.
+   * @param fallback - An optional default value.
    * @returns The user's response as a string.
    */
-  async secret (message: string): Promise<string> {
-    return await this.prompt<string>({ type: 'password', message })
-  }
-
-  /**
-   * Asks for a confirmation.
-   *
-   * @param message - The message to display.
-   * @param fallback - The fallback value if no response is provided.
-   * @returns The user's response as a boolean.
-   */
-  async confirm (message: string, fallback: boolean = false): Promise<boolean> {
-    return await this.prompt<boolean>({ type: 'confirm', message, default: fallback })
-  }
-
-  /**
-   * Asks the user to make a choice from a list.
-   *
-   * @param message - The message to display.
-   * @param choices - The array of choices to present.
-   * @param fallbackIndex - The default selected index if no response is provided.
-   * @param multiple - Whether to allow multiple selections.
-   * @returns The user's response.
-   */
-  async choice (
-    message: string,
-    choices: string[],
-    fallbackIndex: number[] = [0],
-    multiple: boolean = false
-  ): Promise<string | string[]> {
-    return await this.prompt<string | string[]>({
-      type: multiple ? 'checkbox' : 'rawlist',
-      choices,
+  async ask (message: string, fallback?: string): Promise<string> {
+    return await this.prompt<string>({
       message,
-      default: fallbackIndex
+      type: 'text',
+      initial: fallback
     })
   }
 
   /**
-   * Opens an editor for the user to input text.
+   * Asks the user for a numeric input.
    *
-   * @param message - The message to display.
-   * @param fallback - The fallback value if no response is provided.
+   * @param message - The question to display to the user.
+   * @param fallback - An optional default numeric value.
+   * @returns The user's response as a number.
+   */
+  async askNumber (message: string, fallback?: number): Promise<number> {
+    return await this.prompt<number>({
+      message,
+      type: 'number',
+      initial: fallback
+    })
+  }
+
+  /**
+   * Asks the user for a hidden (secret) input such as a password.
+   *
+   * @param message - The message to display to the user.
+   * @returns The user's input as a string.
+   */
+  async secret (message: string): Promise<string> {
+    return await this.prompt<string>({
+      message,
+      type: 'password'
+    })
+  }
+
+  /**
+   * Asks the user for a yes/no confirmation.
+   *
+   * @param message - The confirmation message to show.
+   * @param fallback - The default value if the user provides no response (defaults to false).
+   * @returns The user's response as a boolean.
+   */
+  async confirm (message: string, fallback = false): Promise<boolean> {
+    return await this.prompt<boolean>({
+      message,
+      type: 'confirm',
+      initial: fallback
+    })
+  }
+
+  /**
+   * Asks the user to choose from a list of options.
+   *
+   * @param message - The message to display to the user.
+   * @param choices - A list of string options to choose from.
+   * @param fallbackIndex - An array of fallback selected indices (default is first).
+   * @param multiple - Whether to allow multiple selections (checkbox style).
+   * @returns The user's selection(s) as a string or array of strings.
+   */
+  async choice (
+    message: string,
+    choices: Choice[],
+    fallbackIndex: number[] = [0],
+    multiple = false
+  ): Promise<string | string[]> {
+    return await this.prompt<string | string[]>({
+      message,
+      choices,
+      initial: fallbackIndex[0],
+      type: multiple ? 'multiselect' : 'select'
+    })
+  }
+
+  /**
+   * Opens a pseudo-editor by asking the user to input a multi-line value in the terminal.
+   * (Note: actual editor support is limited in `prompts`, so this simulates one via text input).
+   *
+   * @param message - The message to display to the user.
+   * @param fallback - An optional default value.
    * @returns The user's response as a string.
    */
   async editor (message: string, fallback?: string): Promise<string> {
-    return await this.prompt<string>({ type: 'editor', message, default: fallback })
+    return await this.prompt<string>({
+      type: 'text',
+      initial: fallback,
+      message: `${message} (You can copy/paste multi-line input)`
+    })
   }
 }

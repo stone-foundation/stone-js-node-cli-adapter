@@ -1,14 +1,14 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [decorators/Command](../README.md) / Command
+[Node CLI Adapter Documentation](../../../README.md) / [decorators/Command](../README.md) / Command
 
 # Function: Command()
 
 > **Command**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/decorators/Command.ts#L58)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L58)
 
 Command decorator to mark a class as a command and automatically bind it to the container.
 
@@ -17,7 +17,9 @@ making them easily injectable and manageable by the command container.
 
 ## Type Parameters
 
-• **T** *extends* `ClassType` = `ClassType`
+### T
+
+`T` *extends* `ClassType` = `ClassType`
 
 ## Parameters
 

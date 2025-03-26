@@ -1,6 +1,6 @@
 import ora from 'ora'
 import chalk from 'chalk'
-import inquirer from 'inquirer'
+import prompts from 'prompts'
 import { CommandInput } from './CommandInput'
 import { CommandOutput } from './CommandOutput'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
@@ -76,7 +76,7 @@ export class CommandServiceProvider implements IServiceProvider {
    * Registers command utilities in the service container.
    */
   private registerCommandUtils (): this {
-    this.container.singleton(CommandInput, () => CommandInput.create({ prompt: inquirer.createPromptModule() })).alias(CommandInput, 'commandInput')
+    this.container.singleton(CommandInput, () => CommandInput.create({ prompts })).alias(CommandInput, 'commandInput')
     this.container.singleton(CommandOutput, () => CommandOutput.create({ stdConsole: console, smartConsole: ora, format: chalk })).alias(CommandOutput, 'commandOutput')
 
     return this

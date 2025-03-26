@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [decorators/NodeConsole](../README.md) / NodeConsoleOptions
+[Node CLI Adapter Documentation](../../../README.md) / [decorators/NodeConsole](../README.md) / NodeConsoleOptions
 
 # Interface: NodeConsoleOptions
 
-Defined in: [node-cli-adapter/src/decorators/NodeConsole.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/decorators/NodeConsole.ts#L9)
+Defined in: [node-cli-adapter/src/decorators/NodeConsole.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/NodeConsole.ts#L9)
 
 Configuration options for the `NodeConsole` decorator.
 These options extend the default Node Cli adapter configuration.
@@ -21,7 +21,7 @@ These options extend the default Node Cli adapter configuration.
 
 > `optional` **alias**: `string`
 
-Defined in: core/dist/index.d.ts:445
+Defined in: core/dist/index.d.ts:455
 
 The alias name for the adapter.
 This is a unique identifier used to reference the adapter.
@@ -35,9 +35,9 @@ Optional property.
 
 ### commands?
 
-> `optional` **commands**: [`MetaCommandHandler`](../../../declarations/interfaces/MetaCommandHandler.md)[]
+> `optional` **commands**: [`MetaCommandHandler`](../../../declarations/interfaces/MetaCommandHandler.md)\<`IncomingEvent`, `unknown`\>[]
 
-Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:19](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/options/NodeCliAdapterBlueprint.ts#L19)
+Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:19](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/options/NodeCliAdapterBlueprint.ts#L19)
 
 #### Inherited from
 
@@ -49,7 +49,7 @@ Defined in: [node-cli-adapter/src/options/NodeCliAdapterBlueprint.ts:19](https:/
 
 > `optional` **current**: `boolean`
 
-Defined in: core/dist/index.d.ts:451
+Defined in: core/dist/index.d.ts:461
 
 The current status identifier for the adapter.
 Used to indicate if this adapter instance is active or currently in use.
@@ -65,7 +65,7 @@ Optional property.
 
 > `optional` **default**: `boolean`
 
-Defined in: core/dist/index.d.ts:456
+Defined in: core/dist/index.d.ts:466
 
 Defines whether this adapter is the default adapter used by the application.
 Optional property.
@@ -78,9 +78,9 @@ Optional property.
 
 ### errorHandlers?
 
-> `optional` **errorHandlers**: `Record`\<`string`, `MetaAdapterErrorHandler`\>
+> `optional` **errorHandlers**: `Record`\<`string`, `MetaAdapterErrorHandler`\<`any`, `any`, `any`\>\>
 
-Defined in: core/dist/index.d.ts:439
+Defined in: core/dist/index.d.ts:449
 
 Error handlers used to manage and report errors that occur within the adapter.
 These handlers can be used to customize error handling behavior and logging.
@@ -95,7 +95,7 @@ These handlers can be used to customize error handling behavior and logging.
 
 > `optional` **eventHandlerResolver**: `AdapterEventHandlerResolver`\<`IncomingEvent`, `OutgoingResponse`\>
 
-Defined in: core/dist/index.d.ts:434
+Defined in: core/dist/index.d.ts:444
 
 The event handler resolver used to create instances of the event handler.
 
@@ -107,9 +107,9 @@ The event handler resolver used to create instances of the event handler.
 
 ### middleware?
 
-> `optional` **middleware**: `AdapterMixedPipeType`\<`AdapterContext`\<`any`, `any`, `any`\>, `any`\>[]
+> `optional` **middleware**: `AdapterMixedPipeType`\<`AdapterContext`\<`any`, `any`, `any`, `IncomingEvent`, `IncomingEventOptions`, `OutgoingResponse`\>, `any`\>[]
 
-Defined in: core/dist/index.d.ts:430
+Defined in: core/dist/index.d.ts:440
 
 The middleware used for processing incoming or outgoing data in the adapter.
 Middleware can modify or handle events at different stages of the adapter's lifecycle.
@@ -124,7 +124,7 @@ Middleware can modify or handle events at different stages of the adapter's life
 
 > `optional` **platform**: `string`
 
-Defined in: core/dist/index.d.ts:421
+Defined in: core/dist/index.d.ts:431
 
 The platform identifier for the adapter.
 This is used to categorize the adapter based on the environment or technology it supports.
@@ -139,7 +139,7 @@ This is used to categorize the adapter based on the environment or technology it
 
 > `optional` **resolver**: `AdapterResolver`
 
-Defined in: core/dist/index.d.ts:425
+Defined in: core/dist/index.d.ts:435
 
 The class type resolver used to create instances of the adapter.
 

@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [middleware/RawResponseMiddleware](../README.md) / RawResponseMiddleware
+[Node CLI Adapter Documentation](../../../README.md) / [middleware/RawResponseMiddleware](../README.md) / RawResponseMiddleware
 
 # Class: RawResponseMiddleware
 
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/middleware/RawResponseMiddleware.ts#L11)
+Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/middleware/RawResponseMiddleware.ts#L11)
 
 Middleware for handling raw responses in the Node CLI adapter.
 
@@ -16,11 +16,11 @@ This middleware processes outgoing responses and attaches the necessary exit cod
 
 ### new RawResponseMiddleware()
 
-> **new RawResponseMiddleware**(): [`RawResponseMiddleware`](RawResponseMiddleware.md)
+> **new RawResponseMiddleware**(): `RawResponseMiddleware`
 
 #### Returns
 
-[`RawResponseMiddleware`](RawResponseMiddleware.md)
+`RawResponseMiddleware`
 
 ## Methods
 
@@ -28,7 +28,7 @@ This middleware processes outgoing responses and attaches the necessary exit cod
 
 > **handle**(`context`, `next`): `Promise`\<[`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
 
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/middleware/RawResponseMiddleware.ts#L20)
+Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/middleware/RawResponseMiddleware.ts#L20)
 
 Handles the outgoing response, processes it, and invokes the next middleware in the pipeline.
 

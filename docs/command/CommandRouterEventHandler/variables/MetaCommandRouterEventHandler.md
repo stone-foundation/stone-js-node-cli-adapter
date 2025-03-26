@@ -1,14 +1,16 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
+[**Node CLI Adapter Documentation**](../../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../../modules.md) / [command/CommandRouterEventHandler](../README.md) / MetaCommandRouterEventHandler
+[Node CLI Adapter Documentation](../../../README.md) / [command/CommandRouterEventHandler](../README.md) / MetaCommandRouterEventHandler
 
 # Variable: MetaCommandRouterEventHandler
 
 > `const` **MetaCommandRouterEventHandler**: `object`
 
-Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:165](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/command/CommandRouterEventHandler.ts#L165)
+Defined in: [node-cli-adapter/src/command/CommandRouterEventHandler.ts:168](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandRouterEventHandler.ts#L168)
+
+MetaCommandRouterEventHandler module.
 
 ## Type declaration
 

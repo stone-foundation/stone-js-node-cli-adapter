@@ -1,20 +1,24 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
+[**Node CLI Adapter Documentation**](../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../modules.md) / [declarations](../README.md) / MetaCommandHandler
+[Node CLI Adapter Documentation](../../README.md) / [declarations](../README.md) / MetaCommandHandler
 
 # Interface: MetaCommandHandler\<W, X\>
 
-Defined in: [node-cli-adapter/src/declarations.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L73)
+Defined in: [node-cli-adapter/src/declarations.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/declarations.ts#L73)
 
 Represents MetaCommandHandler.
 
 ## Type Parameters
 
-• **W** *extends* `IncomingEvent` = `IncomingEvent`
+### W
 
-• **X** = `unknown`
+`W` *extends* `IncomingEvent` = `IncomingEvent`
+
+### X
+
+`X` = `unknown`
 
 ## Properties
 
@@ -22,7 +26,7 @@ Represents MetaCommandHandler.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [node-cli-adapter/src/declarations.ts:77](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L77)
+Defined in: [node-cli-adapter/src/declarations.ts:77](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/declarations.ts#L77)
 
 ***
 
@@ -30,7 +34,7 @@ Defined in: [node-cli-adapter/src/declarations.ts:77](https://github.com/stonemj
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [node-cli-adapter/src/declarations.ts:78](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L78)
+Defined in: [node-cli-adapter/src/declarations.ts:78](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/declarations.ts#L78)
 
 ***
 
@@ -38,7 +42,7 @@ Defined in: [node-cli-adapter/src/declarations.ts:78](https://github.com/stonemj
 
 > **module**: [`CommandHandlerType`](../type-aliases/CommandHandlerType.md)\<`W`, `X`\>
 
-Defined in: [node-cli-adapter/src/declarations.ts:80](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L80)
+Defined in: [node-cli-adapter/src/declarations.ts:80](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/declarations.ts#L80)
 
 ***
 
@@ -46,4 +50,4 @@ Defined in: [node-cli-adapter/src/declarations.ts:80](https://github.com/stonemj
 
 > **options**: [`CommandOptions`](../../decorators/Command/interfaces/CommandOptions.md)
 
-Defined in: [node-cli-adapter/src/declarations.ts:79](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/declarations.ts#L79)
+Defined in: [node-cli-adapter/src/declarations.ts:79](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/declarations.ts#L79)

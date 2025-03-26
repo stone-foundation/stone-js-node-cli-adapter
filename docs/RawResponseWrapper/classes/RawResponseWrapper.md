@@ -1,12 +1,12 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
+[**Node CLI Adapter Documentation**](../../README.md)
 
 ***
 
-[Node CLI Adapter Documentation](../../modules.md) / [RawResponseWrapper](../README.md) / RawResponseWrapper
+[Node CLI Adapter Documentation](../../README.md) / [RawResponseWrapper](../README.md) / RawResponseWrapper
 
 # Class: RawResponseWrapper
 
-Defined in: [node-cli-adapter/src/RawResponseWrapper.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/RawResponseWrapper.ts#L11)
+Defined in: [node-cli-adapter/src/RawResponseWrapper.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/RawResponseWrapper.ts#L11)
 
 Wrapper for generic raw responses.
 
@@ -24,7 +24,7 @@ It implements the `IRawResponseWrapper` interface, ensuring compatibility with t
 
 > **respond**(): `number`
 
-Defined in: [node-cli-adapter/src/RawResponseWrapper.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/RawResponseWrapper.ts#L62)
+Defined in: [node-cli-adapter/src/RawResponseWrapper.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/RawResponseWrapper.ts#L62)
 
 Constructs and returns the raw response.
 
@@ -54,9 +54,9 @@ console.log(response); // 1
 
 ### create()
 
-> `static` **create**(`options`): [`RawResponseWrapper`](RawResponseWrapper.md)
+> `static` **create**(`options`): `RawResponseWrapper`
 
-Defined in: [node-cli-adapter/src/RawResponseWrapper.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/864b503e06a40512b872ced9446e09ca39f76729/src/RawResponseWrapper.ts#L32)
+Defined in: [node-cli-adapter/src/RawResponseWrapper.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/RawResponseWrapper.ts#L32)
 
 Factory method to create an instance of `RawResponseWrapper`.
 
@@ -72,7 +72,7 @@ Partial options to configure the raw response.
 
 #### Returns
 
-[`RawResponseWrapper`](RawResponseWrapper.md)
+`RawResponseWrapper`
 
 A new instance of `RawResponseWrapper`.
 
