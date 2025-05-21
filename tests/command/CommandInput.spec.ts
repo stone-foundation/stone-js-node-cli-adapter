@@ -1,125 +1,121 @@
-import { Mock } from 'vitest'
-import { CommandInput, CommandInputOptions } from '../../src/command/CommandInput'
+import type { PromptObject, Choice } from 'prompts'
+import { CommandInput } from '../../src/command/CommandInput'
 
 describe('CommandInput', () => {
-  let mockPrompt: Mock
-  let commandInput: CommandInput
+  let mockPrompts: ReturnType<typeof vi.fn>
+  let input: CommandInput
 
   beforeEach(() => {
-    mockPrompt = vi.fn()
-    const options: CommandInputOptions = { prompt: mockPrompt } as any
-    commandInput = CommandInput.create(options)
+    mockPrompts = vi.fn()
+    // @ts-expect-error: force inject mock
+    input = CommandInput.create({ prompts: mockPrompts })
   })
 
-  it('should create a CommandInput instance', () => {
-    expect(commandInput).toBeInstanceOf(CommandInput)
+  it('should return raw prompt value for generic prompt()', async () => {
+    mockPrompts.mockResolvedValue({ value: 'hello' })
+    const result = await input.prompt<string>({ message: 'Say hi', type: 'text' } as unknown as PromptObject)
+    expect(mockPrompts).toHaveBeenCalledWith({ message: 'Say hi', type: 'text', name: 'value' })
+    expect(result).toBe('hello')
   })
 
-  it('should display a questionnaire', async () => {
-    const questions = [
-      { type: 'input', name: 'testQuestion', message: 'Test?' }
-    ]
-    const mockAnswers = { testQuestion: 'response' };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.questionnaire([{ type: 'input', name: 'testQuestion', message: 'Test?' }])
-
-    expect(mockPrompt).toHaveBeenCalledWith(questions)
-    expect(result).toEqual(mockAnswers)
+  it('should ask for a string', async () => {
+    mockPrompts.mockResolvedValue({ value: 'stone' })
+    const result = await input.ask('Your name?')
+    expect(result).toBe('stone')
+    expect(mockPrompts).toHaveBeenCalledWith({
+      message: 'Your name?',
+      type: 'text',
+      initial: undefined,
+      name: 'value'
+    })
   })
 
-  it('should prompt a single question', async () => {
-    const question = { type: 'input', message: 'Test question?' }
-    const mockAnswers = { value: 'response' };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.prompt<string>({ type: 'input', message: 'Test question?' })
-
-    expect(mockPrompt).toHaveBeenCalledWith([{ ...question, name: 'value' }])
-    expect(result).toBe('response')
+  it('should ask for a string with fallback', async () => {
+    mockPrompts.mockResolvedValue({ value: 'fallback-name' })
+    const result = await input.ask('Your name?', 'fallback-name')
+    expect(result).toBe('fallback-name')
   })
 
-  it('should ask a basic question with a fallback', async () => {
-    const mockAnswers = { value: 'response' };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.ask('What is your name?', 'John')
-
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'input', message: 'What is your name?', default: 'John', name: 'value' }
-    ])
-    expect(result).toBe('response')
-  })
-
-  it('should ask a numeric question with a fallback', async () => {
-    const mockAnswers = { value: 42 };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.askNumber('What is your age?', 25)
-
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'number', message: 'What is your age?', default: 25, name: 'value' }
-    ])
+  it('should ask for a number', async () => {
+    mockPrompts.mockResolvedValue({ value: 42 })
+    const result = await input.askNumber('Your age?')
     expect(result).toBe(42)
   })
 
-  it('should ask for a secret input', async () => {
-    const mockAnswers = { value: 'secretPassword' };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.secret('Enter your password')
-
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'password', message: 'Enter your password', name: 'value' }
-    ])
-    expect(result).toBe('secretPassword')
+  it('should ask for a number with fallback', async () => {
+    mockPrompts.mockResolvedValue({ value: 99 })
+    const result = await input.askNumber('Your age?', 99)
+    expect(result).toBe(99)
   })
 
-  it('should ask for confirmation', async () => {
-    const mockAnswers = { value: true };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
+  it('should ask for a secret (password)', async () => {
+    mockPrompts.mockResolvedValue({ value: 'secret!' })
+    const result = await input.secret('Enter password')
+    expect(result).toBe('secret!')
+  })
 
-    const result = await commandInput.confirm('Do you agree?')
-
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'confirm', message: 'Do you agree?', default: false, name: 'value' }
-    ])
+  it('should confirm (true)', async () => {
+    mockPrompts.mockResolvedValue({ value: true })
+    const result = await input.confirm('Are you sure?')
     expect(result).toBe(true)
   })
 
-  it('should ask for a choice from a list', async () => {
-    const mockAnswers = { value: 'Choice 1' };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.choice('Choose one:', ['Choice 1', 'Choice 2'], [0])
-
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'rawlist', choices: ['Choice 1', 'Choice 2'], message: 'Choose one:', default: [0], name: 'value' }
-    ])
-    expect(result).toBe('Choice 1')
+  it('should confirm (false fallback)', async () => {
+    mockPrompts.mockResolvedValue({ value: false })
+    const result = await input.confirm('Are you sure?', false)
+    expect(result).toBe(false)
   })
 
-  it('should ask for multiple choices from a list', async () => {
-    const mockAnswers = { value: ['Choice 1', 'Choice 2'] };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
-
-    const result = await commandInput.choice('Choose multiple:', ['Choice 1', 'Choice 2'], [0], true)
-
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'checkbox', choices: ['Choice 1', 'Choice 2'], message: 'Choose multiple:', default: [0], name: 'value' }
-    ])
-    expect(result).toEqual(['Choice 1', 'Choice 2'])
+  it('should select from choices (single)', async () => {
+    mockPrompts.mockResolvedValue({ value: 'B' })
+    const choices: Choice[] = [
+      { title: 'Option A', value: 'A' },
+      { title: 'Option B', value: 'B' }
+    ]
+    const result = await input.choice('Pick one', choices)
+    expect(result).toBe('B')
+    expect(mockPrompts).toHaveBeenCalledWith({
+      message: 'Pick one',
+      choices,
+      initial: 0,
+      type: 'select',
+      name: 'value'
+    })
   })
 
-  it('should open an editor for input', async () => {
-    const mockAnswers = { value: 'Editor content' };
-    (mockPrompt as any).mockResolvedValue(mockAnswers)
+  it('should select from choices (multi)', async () => {
+    mockPrompts.mockResolvedValue({ value: ['A', 'C'] })
+    const choices: Choice[] = [
+      { title: 'Option A', value: 'A' },
+      { title: 'Option B', value: 'B' },
+      { title: 'Option C', value: 'C' }
+    ]
+    const result = await input.choice('Pick many', choices, [0], true)
+    expect(result).toEqual(['A', 'C'])
+    expect(mockPrompts).toHaveBeenCalledWith({
+      message: 'Pick many',
+      choices,
+      initial: 0,
+      type: 'multiselect',
+      name: 'value'
+    })
+  })
 
-    const result = await commandInput.editor('Write something:', 'Default content')
+  it('should simulate an editor prompt', async () => {
+    mockPrompts.mockResolvedValue({ value: 'multi\nline\ntext' })
+    const result = await input.editor('Describe')
+    expect(result).toBe('multi\nline\ntext')
+    expect(mockPrompts).toHaveBeenCalledWith({
+      type: 'text',
+      message: 'Describe (You can copy/paste multi-line input)',
+      initial: undefined,
+      name: 'value'
+    })
+  })
 
-    expect(mockPrompt).toHaveBeenCalledWith([
-      { type: 'editor', message: 'Write something:', default: 'Default content', name: 'value' }
-    ])
-    expect(result).toBe('Editor content')
+  it('should simulate editor with fallback', async () => {
+    mockPrompts.mockResolvedValue({ value: 'fallback content' })
+    const result = await input.editor('Describe', 'fallback content')
+    expect(result).toBe('fallback content')
   })
 })

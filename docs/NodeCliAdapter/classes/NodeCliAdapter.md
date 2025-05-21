@@ -6,7 +6,7 @@
 
 # Class: NodeCliAdapter
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:60](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliAdapter.ts#L60)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:60](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/NodeCliAdapter.ts#L60)
 
 Node Cli Adapter for Stone.js.
 
@@ -71,7 +71,7 @@ export { handler };
 
 > `protected` **new NodeCliAdapter**(`blueprint`): `NodeCliAdapter`
 
-Defined in: core/dist/index.d.ts:2751
+Defined in: core/dist/index.d.ts:2573
 
 Create an Adapter.
 
@@ -97,7 +97,7 @@ The blueprint to create the adapter.
 
 > `protected` `readonly` **blueprint**: `IBlueprint`
 
-Defined in: core/dist/index.d.ts:2742
+Defined in: core/dist/index.d.ts:2564
 
 #### Inherited from
 
@@ -109,7 +109,7 @@ Defined in: core/dist/index.d.ts:2742
 
 > `protected` `readonly` **hooks**: `AdapterHookType`\<[`NodeCliAdapterContext`](../../declarations/interfaces/NodeCliAdapterContext.md), `number`\>
 
-Defined in: core/dist/index.d.ts:2743
+Defined in: core/dist/index.d.ts:2565
 
 #### Inherited from
 
@@ -121,7 +121,7 @@ Defined in: core/dist/index.d.ts:2743
 
 > `protected` `readonly` **middleware**: `AdapterMixedPipeType`\<[`NodeCliAdapterContext`](../../declarations/interfaces/NodeCliAdapterContext.md), `number`\>[]
 
-Defined in: core/dist/index.d.ts:2744
+Defined in: core/dist/index.d.ts:2566
 
 #### Inherited from
 
@@ -133,7 +133,7 @@ Defined in: core/dist/index.d.ts:2744
 
 > `protected` `readonly` **resolvedErrorHandlers**: `Record`\<`string`, `IAdapterErrorHandler`\<[`NodeCliEvent`](../../declarations/interfaces/NodeCliEvent.md), `number`, [`CommandBuilder`](../../declarations/type-aliases/CommandBuilder.md)\>\>
 
-Defined in: core/dist/index.d.ts:2745
+Defined in: core/dist/index.d.ts:2567
 
 #### Inherited from
 
@@ -145,7 +145,7 @@ Defined in: core/dist/index.d.ts:2745
 
 > `protected` **buildRawResponse**(`context`, `eventHandler`?): `Promise`\<`number`\>
 
-Defined in: core/dist/index.d.ts:2805
+Defined in: core/dist/index.d.ts:2627
 
 Build the raw response.
 
@@ -179,7 +179,7 @@ The raw response wrapper.
 
 > `protected` **eventListener**(`rawEvent`, `executionContext`): `Promise`\<`number`\>
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:145](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliAdapter.ts#L145)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:145](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/NodeCliAdapter.ts#L145)
 
 Processes an incoming Node Cli event.
 
@@ -212,7 +212,7 @@ A promise resolving to the processed `RawResponse`.
 
 > `protected` **executeEventHandlerHooks**(`hook`, `eventHandler`): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2833
+Defined in: core/dist/index.d.ts:2655
 
 Execute the event handler lifecycle hooks.
 
@@ -244,7 +244,7 @@ The event handler to be run.
 
 > `protected` **executeHooks**(`name`, `context`?, `error`?): `Promise`\<`void`\>
 
-Defined in: core/dist/index.d.ts:2841
+Defined in: core/dist/index.d.ts:2663
 
 Execute adapter lifecycle hooks.
 
@@ -282,7 +282,7 @@ The error to handle.
 
 > `protected` **handleError**(`error`, `context`): `Promise`\<`AdapterEventBuilderType`\<`number`\>\>
 
-Defined in: core/dist/index.d.ts:2797
+Defined in: core/dist/index.d.ts:2619
 
 Handle error.
 
@@ -316,7 +316,7 @@ The raw response.
 
 > `protected` **handleEvent**(`context`, `eventHandler`): `Promise`\<`IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`number`\>\>\>
 
-Defined in: core/dist/index.d.ts:2789
+Defined in: core/dist/index.d.ts:2611
 
 Handle the event.
 
@@ -350,7 +350,7 @@ The raw response wrapper.
 
 > `protected` **makePipelineOptions**(): `PipelineOptions`\<[`NodeCliAdapterContext`](../../declarations/interfaces/NodeCliAdapterContext.md), `AdapterEventBuilderType`\<`number`\>\>
 
-Defined in: core/dist/index.d.ts:2811
+Defined in: core/dist/index.d.ts:2633
 
 Create pipeline options for the Adapter.
 
@@ -370,7 +370,7 @@ The pipeline options for transforming the event.
 
 > `protected` **onStart**(): `Promise`\<`void`\>
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:125](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliAdapter.ts#L125)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:125](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/NodeCliAdapter.ts#L125)
 
 Initializes the adapter and validates its execution context.
 
@@ -391,7 +391,7 @@ If executed outside an Node Cli context (e.g., browser).
 
 > `protected` **resolveErrorHandler**(`error`): `IAdapterErrorHandler`\<[`NodeCliEvent`](../../declarations/interfaces/NodeCliEvent.md), `number`, [`CommandBuilder`](../../declarations/type-aliases/CommandBuilder.md)\>
 
-Defined in: core/dist/index.d.ts:2826
+Defined in: core/dist/index.d.ts:2648
 
 Get the error handler for the given error.
 
@@ -423,7 +423,7 @@ IntegrationError
 
 > `protected` **resolveEventHandler**(): `AdapterEventHandlerType`\<`IncomingEvent`, `OutgoingResponse`\>
 
-Defined in: core/dist/index.d.ts:2818
+Defined in: core/dist/index.d.ts:2640
 
 Get the event handler for the adapter.
 
@@ -447,7 +447,7 @@ If the event handler is missing.
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:103](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliAdapter.ts#L103)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:103](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/NodeCliAdapter.ts#L103)
 
 Executes the adapter and provides an Node Cli-compatible handler function.
 
@@ -481,7 +481,7 @@ If used outside the Node Cli environment.
 
 > `protected` **sendEventThroughDestination**(`context`, `eventHandler`): `Promise`\<`number`\>
 
-Defined in: core/dist/index.d.ts:2781
+Defined in: core/dist/index.d.ts:2603
 
 Send the raw event through the destination.
 
@@ -519,7 +519,7 @@ IntegrationError
 
 > `protected` **validateContextAndEventHandler**(`context`, `eventHandler`): `void`
 
-Defined in: core/dist/index.d.ts:2849
+Defined in: core/dist/index.d.ts:2671
 
 Validate the context and event handler.
 
@@ -555,7 +555,7 @@ IntegrationError
 
 > `static` **create**(`blueprint`): `NodeCliAdapter`
 
-Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:81](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/NodeCliAdapter.ts#L81)
+Defined in: [node-cli-adapter/src/NodeCliAdapter.ts:81](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/NodeCliAdapter.ts#L81)
 
 Creates an instance of the `NodeCliAdapter`.
 

@@ -8,7 +8,7 @@
 
 > `const` **COMMAND\_NOT\_FOUND\_CODE**: `404` = `404`
 
-Defined in: [node-cli-adapter/src/constants.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/constants.ts#L15)
+Defined in: [node-cli-adapter/src/constants.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/constants.ts#L15)
 
 A constant representing the default command not found code.
 

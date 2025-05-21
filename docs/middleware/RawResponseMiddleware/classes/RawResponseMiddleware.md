@@ -6,7 +6,7 @@
 
 # Class: RawResponseMiddleware
 
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/middleware/RawResponseMiddleware.ts#L11)
+Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/middleware/RawResponseMiddleware.ts#L11)
 
 Middleware for handling raw responses in the Node CLI adapter.
 
@@ -28,7 +28,7 @@ This middleware processes outgoing responses and attaches the necessary exit cod
 
 > **handle**(`context`, `next`): `Promise`\<[`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
 
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/middleware/RawResponseMiddleware.ts#L20)
+Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/middleware/RawResponseMiddleware.ts#L20)
 
 Handles the outgoing response, processes it, and invokes the next middleware in the pipeline.
 
@@ -42,7 +42,7 @@ The adapter context containing the raw event, execution context, and other data.
 
 ##### next
 
-`NextPipe`\<[`NodeCliAdapterContext`](../../../declarations/interfaces/NodeCliAdapterContext.md), [`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
+`NextMiddleware`\<[`NodeCliAdapterContext`](../../../declarations/interfaces/NodeCliAdapterContext.md), [`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
 
 The next middleware to be invoked in the pipeline.
 

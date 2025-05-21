@@ -1,6 +1,6 @@
 # Stone.js: Node CLI Adapter
 
-[![npm](https://img.shields.io/npm/l/@stone-js/node-cli-adapter)](https://opensource.org/licenses/Apache-2.0)
+[![npm](https://img.shields.io/npm/l/@stone-js/browser-core)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/@stone-js/node-cli-adapter)](https://www.npmjs.com/package/@stone-js/node-cli-adapter)
 [![npm](https://img.shields.io/npm/dm/@stone-js/node-cli-adapter)](https://www.npmjs.com/package/@stone-js/node-cli-adapter)
 ![Maintenance](https://img.shields.io/maintenance/yes/2025)
@@ -12,7 +12,7 @@ Stone.js Node CLI Adapter with typings.
 
 ---
 
-Get started with the [documentation](https://stonejs.com/docs/deeper/cli).
+Get started with the [documentation](https://stonejs.com/docs/architecture/adapter.html).
 
 
 ## Contributing

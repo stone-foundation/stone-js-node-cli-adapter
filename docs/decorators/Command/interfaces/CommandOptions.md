@@ -6,7 +6,7 @@
 
 # Interface: CommandOptions
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L10)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/Command.ts#L10)
 
 Command options.
 
@@ -18,7 +18,7 @@ Represents the configuration options for a CLI command.
 
 > `optional` **alias**: `string` \| `string`[]
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L21)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:21](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/Command.ts#L21)
 
 Alias or aliases for the command, used for identification or access.
 Can be a single alias or an array of aliases.
@@ -29,7 +29,7 @@ Can be a single alias or an array of aliases.
 
 > `optional` **args**: `string` \| `string`[]
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L27)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:27](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/Command.ts#L27)
 
 The arguments required or accepted by the command.
 Can be a single argument or an array of arguments.
@@ -40,7 +40,7 @@ Can be a single argument or an array of arguments.
 
 > `optional` **desc**: `string`
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L32)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/Command.ts#L32)
 
 The description of the command.
 
@@ -50,7 +50,7 @@ The description of the command.
 
 > **name**: `string`
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L15)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:15](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/Command.ts#L15)
 
 The unique name of the command.
 
@@ -60,7 +60,7 @@ The unique name of the command.
 
 > `optional` **options**: `Partial`\<`CommandBuilder`\<\{\}\>\>
 
-Defined in: [node-cli-adapter/src/decorators/Command.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/Command.ts#L38)
+Defined in: [node-cli-adapter/src/decorators/Command.ts:38](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/Command.ts#L38)
 
 A map of additional options for the command, where the key is the option name
 and the value is its description.

@@ -1,12 +1,12 @@
 import {
   IContainer,
+  Promiseable,
   IncomingEvent,
   AdapterContext,
   OutgoingResponse,
   RawResponseOptions,
   IAdapterEventBuilder,
-  IncomingEventOptions,
-  FunctionalEventHandler
+  IncomingEventOptions
 } from '@stone-js/core'
 import { Argv } from 'yargs'
 import { CommandOptions } from './decorators/Command'
@@ -47,7 +47,7 @@ export interface ICommandHandler<
   W extends IncomingEvent = IncomingEvent,
   X = unknown
 > {
-  handle: FunctionalEventHandler<W, X>
+  handle: FunctionalCommandHandler<W, X>
   match?: (event: IncomingEvent) => boolean
 }
 
@@ -57,7 +57,15 @@ export interface ICommandHandler<
 export type FactoryCommandHandler<
   W extends IncomingEvent = IncomingEvent,
   X = unknown
-> = (container: IContainer | any) => ICommandHandler<W, X>
+> = (container: IContainer | any) => ICommandHandler<W, X> | FunctionalCommandHandler<W, X>
+
+/**
+ * Represents FunctionalCommandHandler.
+ */
+export type FunctionalCommandHandler<
+  W extends IncomingEvent = IncomingEvent,
+  X = unknown
+> = (incomingEvent: W) => Promiseable<X>
 
 /**
  * Represents CommandHandlerType.
@@ -65,7 +73,7 @@ export type FactoryCommandHandler<
 export type CommandHandlerType<
   W extends IncomingEvent = IncomingEvent,
   X = unknown
-> = CommandHandlerClass<W, X> | FactoryCommandHandler<W, X>
+> = CommandHandlerClass<W, X> | FactoryCommandHandler<W, X> | FunctionalCommandHandler<W, X>
 
 /**
  * Represents MetaCommandHandler.

@@ -70,8 +70,8 @@ export class CommandOutput {
    * @param value - The value to display as a table.
    * @returns The current instance for chaining.
    */
-  table (value: unknown): this {
-    this.stdConsole.table(value)
+  table (value: unknown, properties?: readonly string[]): this {
+    this.stdConsole.table(value, properties)
     return this
   }
 

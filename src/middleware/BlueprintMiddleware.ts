@@ -4,6 +4,9 @@ import {
   IBlueprint,
   hasMetadata,
   getMetadata,
+  STONE_APP_KEY,
+  NextMiddleware,
+  MetaMiddleware,
   OutgoingResponse,
   BlueprintContext,
   OutgoingResponseOptions
@@ -11,7 +14,7 @@ import {
 import { MetaCommandHandler } from '../declarations'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { COMMAND_KEY } from '../decorators/constants'
-import { MetaPipe, NextPipe } from '@stone-js/pipeline'
+import { MetaCommandRouterEventHandler } from '../command/CommandRouterEventHandler'
 
 /**
  * Middleware to process and register modules as command handlers.
@@ -20,9 +23,9 @@ import { MetaPipe, NextPipe } from '@stone-js/pipeline'
  * @param next - The next middleware in the pipeline to call.
  * @returns The updated blueprint or a promise resolving to it.
  */
-export const CommandMiddleware = async (
+export const SetConsoleCommandMiddleware = async (
   context: BlueprintContext<IBlueprint, ClassType>,
-  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
+  next: NextMiddleware<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
 ): Promise<IBlueprint> => {
   if (context.blueprint.get<string>('stone.adapter.platform') === NODE_CONSOLE_PLATFORM) {
     context.modules
@@ -34,6 +37,39 @@ export const CommandMiddleware = async (
   }
 
   return await next(context)
+}
+
+/**
+ * Blueprint middleware to set the ConsoleRouter as the main event handler for the application.
+ *
+ * The SetConsoleRouterEventHandlerMiddleware takes precedence over all other event handlers middleware when in console mode.
+ *
+ * @param context - The configuration context containing modules and blueprint.
+ * @param next - The next function in the pipeline.
+ * @returns The updated blueprint.
+ *
+ * @example
+ * ```typescript
+ * SetConsoleRouterEventHandlerMiddleware({ modules, blueprint }, next);
+ * ```
+ */
+export async function SetConsoleRouterEventHandlerMiddleware (
+  context: BlueprintContext<IBlueprint, ClassType>,
+  next: NextMiddleware<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> {
+  const blueprint = await next(context)
+
+  if (blueprint.get<string>('stone.adapter.platform') === NODE_CONSOLE_PLATFORM) {
+    blueprint.set('stone.kernel.eventHandler', MetaCommandRouterEventHandler)
+
+    const module = context.modules.find(module => hasMetadata(module, STONE_APP_KEY))
+
+    if (isNotEmpty(module?.prototype?.handle)) {
+      blueprint.add('stone.adapter.commands', [{ module, options: { name: '*' }, isClass: true }])
+    }
+  }
+
+  return blueprint
 }
 
 /**
@@ -50,7 +86,7 @@ export const CommandMiddleware = async (
  */
 export const SetNodeCliResponseResolverMiddleware = async (
   context: BlueprintContext<IBlueprint, ClassType>,
-  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
+  next: NextMiddleware<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
 ): Promise<IBlueprint> => {
   if (context.blueprint.get<string>('stone.adapter.platform') === NODE_CONSOLE_PLATFORM) {
     context.blueprint.set('stone.kernel.skipMiddleware', true)
@@ -69,7 +105,8 @@ export const SetNodeCliResponseResolverMiddleware = async (
  * This array defines a list of middleware pipes, each with a `pipe` function and a `priority`.
  * These pipes are executed in the order of their priority values, with lower values running first.
  */
-export const metaAdapterBlueprintMiddleware: Array<MetaPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>> = [
-  { module: CommandMiddleware, priority: 1 },
+export const metaAdapterBlueprintMiddleware: Array<MetaMiddleware<BlueprintContext<IBlueprint, ClassType>, IBlueprint>> = [
+  { module: SetConsoleCommandMiddleware, priority: 1 },
+  { module: SetConsoleRouterEventHandlerMiddleware, priority: 1 },
   { module: SetNodeCliResponseResolverMiddleware, priority: 6 }
 ]

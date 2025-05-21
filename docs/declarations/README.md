@@ -19,6 +19,7 @@
 - [CommandHandlerClass](type-aliases/CommandHandlerClass.md)
 - [CommandHandlerType](type-aliases/CommandHandlerType.md)
 - [FactoryCommandHandler](type-aliases/FactoryCommandHandler.md)
+- [FunctionalCommandHandler](type-aliases/FunctionalCommandHandler.md)
 - [NodeCliAdapterResponseBuilder](type-aliases/NodeCliAdapterResponseBuilder.md)
 - [NodeCliExecutionContext](type-aliases/NodeCliExecutionContext.md)
 - [RawResponse](type-aliases/RawResponse.md)

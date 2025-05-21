@@ -8,7 +8,7 @@
 
 > **NodeConsole**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [node-cli-adapter/src/decorators/NodeConsole.ts:35](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/decorators/NodeConsole.ts#L35)
+Defined in: [node-cli-adapter/src/decorators/NodeConsole.ts:35](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/decorators/NodeConsole.ts#L35)
 
 A Stone.js decorator that integrates the Node Cli Adapter with a class.
 

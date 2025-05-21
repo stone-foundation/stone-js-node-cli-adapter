@@ -4,15 +4,13 @@ import prompts from 'prompts'
 import { CommandInput } from './CommandInput'
 import { CommandOutput } from './CommandOutput'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
-import { Container } from '@stone-js/service-container'
-import { IBlueprint, IServiceProvider } from '@stone-js/core'
-import { CommandRouterEventHandler } from './CommandRouterEventHandler'
+import { IContainer, IBlueprint, IServiceProvider } from '@stone-js/core'
 
 /**
  * CommandServiceProvider options.
  */
 export interface CommandServiceProviderOptions {
-  container: Container
+  container: IContainer
   blueprint: IBlueprint
 }
 
@@ -32,7 +30,7 @@ export class CommandServiceProvider implements IServiceProvider {
   /**
    * The service container that manages dependencies.
    */
-  private readonly container: Container
+  private readonly container: IContainer
 
   /**
    * Create a new instance of CommandServiceProvider.
@@ -58,18 +56,7 @@ export class CommandServiceProvider implements IServiceProvider {
    * Registers router components and application commands in the service container.
    */
   register (): void {
-    this.setEventHandler()
     this.registerCommandUtils()
-  }
-
-  /**
-   * Sets the event handler for the command service provider.
-   */
-  private setEventHandler (): void {
-    this.blueprint.set(
-      'stone.kernel.eventHandler',
-      { module: CommandRouterEventHandler, isClass: true }
-    )
   }
 
   /**

@@ -1,4 +1,4 @@
-import { NextPipe } from '@stone-js/pipeline'
+import { NextMiddleware } from '@stone-js/core'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
 import { NodeCliAdapterContext, NodeCliAdapterResponseBuilder } from '../declarations'
@@ -17,7 +17,7 @@ export class IncomingEventMiddleware {
    * @returns A promise that resolves to the processed context.
    * @throws {NodeCliAdapterError} If required components are missing in the context.
    */
-  async handle (context: NodeCliAdapterContext, next: NextPipe<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>): Promise<NodeCliAdapterResponseBuilder> {
+  async handle (context: NodeCliAdapterContext, next: NextMiddleware<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>): Promise<NodeCliAdapterResponseBuilder> {
     if ((context.rawEvent == null) || ((context.incomingEventBuilder?.add) == null)) {
       throw new NodeCliAdapterError('The context is missing required components.')
     }

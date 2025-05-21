@@ -12,5 +12,6 @@
 
 ## Functions
 
-- [CommandMiddleware](functions/CommandMiddleware.md)
+- [SetConsoleCommandMiddleware](functions/SetConsoleCommandMiddleware.md)
+- [SetConsoleRouterEventHandlerMiddleware](functions/SetConsoleRouterEventHandlerMiddleware.md)
 - [SetNodeCliResponseResolverMiddleware](functions/SetNodeCliResponseResolverMiddleware.md)

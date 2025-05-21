@@ -3,7 +3,7 @@
   "version": "0.0.21",
   "description": "Stone.js Node CLI Adapter",
   "author": "Mr. Stone <evensstone@gmail.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/stone-js/node-cli-adapter.git"
@@ -53,9 +53,7 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "@stone-js/core": "file:/Users/evenspierre/Projects/StoneJS/core",
-    "@stone-js/pipeline": "file:/Users/evenspierre/Projects/StoneJS/pipeline",
-    "@stone-js/service-container": "file:/Users/evenspierre/Projects/StoneJS/service-container"
+    "@stone-js/core": "file:/Users/evenspierre/Projects/StoneJS/core"
   },
   "dependencies": {
     "chalk": "^5.3.0",

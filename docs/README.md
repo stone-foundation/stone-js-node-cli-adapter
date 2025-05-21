@@ -6,6 +6,7 @@
 
 ## Modules
 
+- [blueprint/BlueprintUtils](blueprint/BlueprintUtils/README.md)
 - [command/CommandInput](command/CommandInput/README.md)
 - [command/CommandOutput](command/CommandOutput/README.md)
 - [command/CommandRouterEventHandler](command/CommandRouterEventHandler/README.md)
@@ -21,7 +22,6 @@
 - [middleware/RawResponseMiddleware](middleware/RawResponseMiddleware/README.md)
 - [NodeCliAdapter](NodeCliAdapter/README.md)
 - [NodeCliErrorHandler](NodeCliErrorHandler/README.md)
-- [options/NodeCliAdapterBlueprint](options/NodeCliAdapterBlueprint/README.md)
+- [options/NodeConsoleAdapterBlueprint](options/NodeConsoleAdapterBlueprint/README.md)
 - [RawResponseWrapper](RawResponseWrapper/README.md)
 - [resolvers](resolvers/README.md)
-- [utils](utils/README.md)

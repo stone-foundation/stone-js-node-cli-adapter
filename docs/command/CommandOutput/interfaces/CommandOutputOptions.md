@@ -6,7 +6,7 @@
 
 # Interface: CommandOutputOptions
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L8)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandOutput.ts#L8)
 
 CommandOutputOptions
 
@@ -16,7 +16,7 @@ CommandOutputOptions
 
 > **format**: `ChalkInstance`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L10)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:10](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandOutput.ts#L10)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [node-cli-adapter/src/command/CommandOutput.ts:10](https://github.co
 
 > **smartConsole**: (`options`?) => `Ora`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L11)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandOutput.ts#L11)
 
 Elegant terminal spinner.
 
@@ -59,4 +59,4 @@ setTimeout(() => {
 
 > **stdConsole**: `Console`
 
-Defined in: [node-cli-adapter/src/command/CommandOutput.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/8ef828e16ecc094567e6273802f11f5e24d2745e/src/command/CommandOutput.ts#L9)
+Defined in: [node-cli-adapter/src/command/CommandOutput.ts:9](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandOutput.ts#L9)

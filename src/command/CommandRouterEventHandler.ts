@@ -1,15 +1,30 @@
+import {
+  ICommandHandler,
+  MetaCommandHandler,
+  CommandHandlerClass,
+  FactoryCommandHandler,
+  FunctionalCommandHandler
+} from '../declarations'
+import {
+  IContainer,
+  IBlueprint,
+  IEventHandler,
+  IncomingEvent,
+  isFunctionModule,
+  OutgoingResponse,
+  isMetaClassModule,
+  isMetaFactoryModule,
+  isMetaFunctionModule
+} from '@stone-js/core'
 import { COMMAND_NOT_FOUND_CODE } from '../constants'
 import { CommandOptions } from '../decorators/Command'
-import { Container } from '@stone-js/service-container'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
-import { CommandHandlerClass, FactoryCommandHandler, ICommandHandler, MetaCommandHandler } from '../declarations'
-import { IBlueprint, IEventHandler, IncomingEvent, isMetaClassModule, isMetaFactoryModule, OutgoingResponse } from '@stone-js/core'
 
 /**
  * CommandRouterEventHandlerOptions options.
  */
 export interface CommandRouterEventHandlerOptions {
-  container: Container
+  container: IContainer
   blueprint: IBlueprint
 }
 
@@ -32,7 +47,7 @@ export class CommandRouterEventHandler<
   /**
    * The service container that manages dependencies.
    */
-  private readonly container: Container
+  private readonly container: IContainer
 
   /**
    * Creates a new instance of `CommandRouter`.
@@ -135,7 +150,10 @@ export class CommandRouterEventHandler<
     if (isMetaClassModule<CommandHandlerClass<W, X>>(metaCommand)) {
       command = this.container.resolve<ICommandHandler<W, X>>(metaCommand.module, true)
     } else if (isMetaFactoryModule<FactoryCommandHandler<W, X>>(metaCommand)) {
-      command = metaCommand.module(this.container)
+      const res = metaCommand.module(this.container)
+      command = isFunctionModule<FunctionalCommandHandler<W, X>>(res) ? { handle: res } : res
+    } else if (isMetaFunctionModule<FunctionalCommandHandler<W, X>>(metaCommand)) {
+      command = { handle: metaCommand.module }
     }
 
     if (command === undefined) {
@@ -157,7 +175,7 @@ export class CommandRouterEventHandler<
       return command.match(event)
     } else {
       const task = event.getMetadataValue<string>('_task')
-      return options.name === task || options.alias === task || (Array.isArray(options.alias) && options.alias.includes(task ?? ''))
+      return options.name === task || options.alias === task || (Array.isArray(options.alias) && options.alias.some((alias) => alias === task))
     }
   }
 }

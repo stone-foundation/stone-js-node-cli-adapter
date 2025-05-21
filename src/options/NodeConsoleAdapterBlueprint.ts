@@ -15,15 +15,19 @@ import { AdapterConfig, AppConfig, defaultKernelResolver, StoneBlueprint } from 
  * customizable options specific to the Node Cli platform. This includes
  * alias, resolver, middleware, hooks, and various adapter state flags.
  */
-export interface NodeCliAdapterAdapterConfig extends AdapterConfig {
+export interface NodeConsoleAdapterAdapterConfig extends AdapterConfig {
+  /**
+   * The commands that the Node Cli adapter will handle.
+   */
   commands: MetaCommandHandler[]
 }
 
 /**
  * Represents the NodeCli configuration options for the application.
  */
-export interface NodeCliAdapterConfig extends Partial<AppConfig> {
-  adapters: NodeCliAdapterAdapterConfig[]
+export interface NodeConsoleAdapterConfig extends Partial<AppConfig> {
+  adapter?: Partial<NodeConsoleAdapterAdapterConfig>
+  adapters: NodeConsoleAdapterAdapterConfig[]
 }
 
 /**
@@ -33,8 +37,8 @@ export interface NodeCliAdapterConfig extends Partial<AppConfig> {
  * Node Cli adapter blueprint used in the Stone.js framework. It includes
  * a `stone` object with an array of `NodeCliAdapterConfig` items.
  */
-export interface NodeCliAdapterBlueprint extends StoneBlueprint {
-  stone: NodeCliAdapterConfig
+export interface NodeConsoleAdapterBlueprint extends StoneBlueprint {
+  stone: Partial<NodeConsoleAdapterConfig>
 }
 
 /**
@@ -46,7 +50,7 @@ export interface NodeCliAdapterBlueprint extends StoneBlueprint {
  * - A default resolver function (currently a placeholder).
  * - Middleware, hooks, and state flags (`current`, `default`, `preferred`).
  */
-export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
+export const nodeConsoleAdapterBlueprint: NodeConsoleAdapterBlueprint = {
   stone: {
     blueprint: {
       middleware: metaAdapterBlueprintMiddleware
@@ -59,6 +63,7 @@ export const nodeCliAdapterBlueprint: NodeCliAdapterBlueprint = {
         commands: [],
         current: false,
         default: false,
+        variant: 'console',
         platform: NODE_CONSOLE_PLATFORM,
         middleware: [
           MetaIncomingEventMiddleware,
