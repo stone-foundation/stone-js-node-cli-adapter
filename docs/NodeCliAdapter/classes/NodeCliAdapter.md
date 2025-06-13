@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../modules.md) / [NodeCliAdapter](../README.md) / NodeCliAdapter
-
 # Class: NodeCliAdapter
-
-Defined in: [src/NodeCliAdapter.ts:46](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L46)
 
 Node Cli Adapter for Stone.js.
 
@@ -67,37 +59,47 @@ export { handler };
 
 ## Constructors
 
-### new NodeCliAdapter()
+### Constructor
 
-> `protected` **new NodeCliAdapter**(`options`): [`NodeCliAdapter`](NodeCliAdapter.md)
-
-Defined in: node\_modules/@stone-js/core/dist/index.d.ts:1876
+```ts
+protected new NodeCliAdapter(blueprint): NodeCliAdapter;
+```
 
 Create an Adapter.
 
 #### Parameters
 
-##### options
+##### blueprint
 
-`AdapterOptions`\<`IncomingEvent`, `OutgoingResponse`\>
+`IBlueprint`
 
-Adapter options.
+The blueprint to create the adapter.
 
 #### Returns
 
-[`NodeCliAdapter`](NodeCliAdapter.md)
+`NodeCliAdapter`
 
 #### Inherited from
 
-`Adapter< NodeCliEvent, RawResponse, NodeCliExecutionContext, IncomingEvent, IncomingEventOptions, OutgoingResponse, NodeCliAdapterContext >.constructor`
+```ts
+Adapter<
+NodeCliEvent,
+RawResponse,
+NodeCliExecutionContext,
+IncomingEvent,
+IncomingEventOptions,
+OutgoingResponse,
+NodeCliAdapterContext
+>.constructor
+```
 
 ## Methods
 
 ### eventListener()
 
-> `protected` **eventListener**(`rawEvent`, `executionContext`): `Promise`\<`number`\>
-
-Defined in: [src/NodeCliAdapter.ts:128](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L128)
+```ts
+protected eventListener(rawEvent, executionContext): Promise<number>;
+```
 
 Processes an incoming Node Cli event.
 
@@ -126,11 +128,11 @@ A promise resolving to the processed `RawResponse`.
 
 ***
 
-### onInit()
+### onStart()
 
-> `protected` **onInit**(): `Promise`\<`void`\>
-
-Defined in: [src/NodeCliAdapter.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L108)
+```ts
+protected onStart(): Promise<void>;
+```
 
 Initializes the adapter and validates its execution context.
 
@@ -145,17 +147,13 @@ throws an error to prevent misuse.
 
 If executed outside an Node Cli context (e.g., browser).
 
-#### Overrides
-
-`Adapter.onInit`
-
 ***
 
 ### run()
 
-> **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
-
-Defined in: [src/NodeCliAdapter.ts:88](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L88)
+```ts
+run<ExecutionResultType>(): Promise<ExecutionResultType>;
+```
 
 Executes the adapter and provides an Node Cli-compatible handler function.
 
@@ -163,7 +161,9 @@ The `run` method processes events, manages context, and returns the appropriate 
 
 #### Type Parameters
 
-• **ExecutionResultType** = `number`
+##### ExecutionResultType
+
+`ExecutionResultType` = `number`
 
 The type representing the Node Cli event handler function.
 
@@ -179,33 +179,37 @@ If used outside the Node Cli environment.
 
 #### Overrides
 
-`Adapter.run`
+```ts
+Adapter.run
+```
 
 ***
 
 ### create()
 
-> `static` **create**(`options`): [`NodeCliAdapter`](NodeCliAdapter.md)
-
-Defined in: [src/NodeCliAdapter.ts:66](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliAdapter.ts#L66)
+```ts
+static create(blueprint): NodeCliAdapter;
+```
 
 Creates an instance of the `NodeCliAdapter`.
 
-This factory method allows developers to instantiate the adapter with
-the necessary configuration options, ensuring it is correctly set up for
-Node Cli usage.
-
 #### Parameters
 
-##### options
+##### blueprint
 
-`AdapterOptions`\<`IncomingEvent`, `OutgoingResponse`\>
+`IBlueprint`
 
-The configuration options for the adapter, including
-                 handler resolver, error handling, and other settings.
+The application blueprint.
 
 #### Returns
 
-[`NodeCliAdapter`](NodeCliAdapter.md)
+`NodeCliAdapter`
 
-A fully initialized `NodeCliAdapter` instance.
+A new instance of `NodeCliAdapter`.
+
+#### Example
+
+```typescript
+const adapter = NodeCliAdapter.create(blueprint);
+await adapter.run();
+```

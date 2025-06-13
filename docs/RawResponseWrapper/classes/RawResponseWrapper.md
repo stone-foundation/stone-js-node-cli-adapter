@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../modules.md) / [RawResponseWrapper](../README.md) / RawResponseWrapper
-
 # Class: RawResponseWrapper
-
-Defined in: [src/RawResponseWrapper.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/RawResponseWrapper.ts#L11)
 
 Wrapper for generic raw responses.
 
@@ -22,9 +14,9 @@ It implements the `IRawResponseWrapper` interface, ensuring compatibility with t
 
 ### respond()
 
-> **respond**(): `number`
-
-Defined in: [src/RawResponseWrapper.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/RawResponseWrapper.ts#L62)
+```ts
+respond(): number;
+```
 
 Constructs and returns the raw response.
 
@@ -48,15 +40,17 @@ console.log(response); // 1
 
 #### Implementation of
 
-`IRawResponseWrapper.respond`
+```ts
+IRawResponseWrapper.respond
+```
 
 ***
 
 ### create()
 
-> `static` **create**(`options`): [`RawResponseWrapper`](RawResponseWrapper.md)
-
-Defined in: [src/RawResponseWrapper.ts:32](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/RawResponseWrapper.ts#L32)
+```ts
+static create(options): RawResponseWrapper;
+```
 
 Factory method to create an instance of `RawResponseWrapper`.
 
@@ -72,7 +66,7 @@ Partial options to configure the raw response.
 
 #### Returns
 
-[`RawResponseWrapper`](RawResponseWrapper.md)
+`RawResponseWrapper`
 
 A new instance of `RawResponseWrapper`.
 

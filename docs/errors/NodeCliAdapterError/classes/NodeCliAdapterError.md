@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../modules.md) / [errors/NodeCliAdapterError](../README.md) / NodeCliAdapterError
-
 # Class: NodeCliAdapterError
-
-Defined in: [src/errors/NodeCliAdapterError.ts:6](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/errors/NodeCliAdapterError.ts#L6)
 
 Custom error for Node CLI adapter operations.
 
@@ -16,11 +8,11 @@ Custom error for Node CLI adapter operations.
 
 ## Constructors
 
-### new NodeCliAdapterError()
+### Constructor
 
-> **new NodeCliAdapterError**(`message`, `options`?): [`NodeCliAdapterError`](NodeCliAdapterError.md)
-
-Defined in: [src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/errors/NodeCliAdapterError.ts#L7)
+```ts
+new NodeCliAdapterError(message, options?): NodeCliAdapterError;
+```
 
 #### Parameters
 
@@ -34,8 +26,10 @@ Defined in: [src/errors/NodeCliAdapterError.ts:7](https://github.com/stonemjs/no
 
 #### Returns
 
-[`NodeCliAdapterError`](NodeCliAdapterError.md)
+`NodeCliAdapterError`
 
 #### Overrides
 
-`IntegrationError.constructor`
+```ts
+IntegrationError.constructor
+```

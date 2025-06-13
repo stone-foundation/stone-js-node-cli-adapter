@@ -1,14 +1,8 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../modules.md) / [decorators/NodeConsole](../README.md) / NodeConsole
-
 # Function: NodeConsole()
 
-> **NodeConsole**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [src/decorators/NodeConsole.ts:35](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/decorators/NodeConsole.ts#L35)
+```ts
+function NodeConsole<T>(options): ClassDecorator;
+```
 
 A Stone.js decorator that integrates the Node Cli Adapter with a class.
 
@@ -18,7 +12,9 @@ the class is automatically configured with the necessary blueprint for Node Cli.
 
 ## Type Parameters
 
-• **T** *extends* `ClassType` = `ClassType`
+### T
+
+`T` *extends* `ClassType` = `ClassType`
 
 The type of the class being decorated. Defaults to `ClassType`.
 

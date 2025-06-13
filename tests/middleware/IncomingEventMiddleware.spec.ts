@@ -1,12 +1,13 @@
-import { NextPipe } from '@stone-js/pipeline'
+import { NextMiddleware } from '@stone-js/core'
 import { NodeCliAdapterError } from '../../src/errors/NodeCliAdapterError'
 import { IncomingEventMiddleware } from '../../src/middleware/IncomingEventMiddleware'
 import { NodeCliAdapterContext, NodeCliAdapterResponseBuilder } from '../../src/declarations'
+import { NODE_CONSOLE_PLATFORM } from '../../src/constants'
 
 describe('IncomingEventMiddleware', () => {
   let middleware: IncomingEventMiddleware
   let mockContext: NodeCliAdapterContext
-  let next: NextPipe<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>
+  let next: NextMiddleware<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>
 
   beforeEach(() => {
     middleware = new IncomingEventMiddleware()
@@ -44,7 +45,7 @@ describe('IncomingEventMiddleware', () => {
     await middleware.handle(mockContext, next)
 
     expect(next).toHaveBeenCalledWith(mockContext)
-    expect(mockContext.incomingEventBuilder?.add).toHaveBeenCalledWith('source', {})
     expect(mockContext.incomingEventBuilder?.add).toHaveBeenCalledWith('metadata', { foo: 'bar', _extra: [], _task: 'task' })
+    expect(mockContext.incomingEventBuilder?.add).toHaveBeenCalledWith('source', { platform: NODE_CONSOLE_PLATFORM, rawEvent: mockContext.rawEvent, rawContext: mockContext.executionContext })
   })
 })

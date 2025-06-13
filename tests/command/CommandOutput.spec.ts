@@ -46,7 +46,7 @@ describe('CommandOutput', () => {
   it('should display a table with table()', () => {
     const data = { key: 'value' }
     commandOutput.table(data)
-    expect(mockStdConsole.table).toHaveBeenCalledWith(data)
+    expect(mockStdConsole.table).toHaveBeenCalledWith(data, undefined)
   })
 
   it('should output a line break with breakLine()', () => {

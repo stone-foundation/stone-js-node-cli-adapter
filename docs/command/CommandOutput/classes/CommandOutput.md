@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../modules.md) / [command/CommandOutput](../README.md) / CommandOutput
-
 # Class: CommandOutput
-
-Defined in: [src/command/CommandOutput.ts:18](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L18)
 
 Class representing a CommandOutput Facade.
 Provides utility methods for logging, colored outputs, spinners, and progress bars.
@@ -15,9 +7,9 @@ Provides utility methods for logging, colored outputs, spinners, and progress ba
 
 ### format
 
-> `readonly` **format**: `ChalkInstance`
-
-Defined in: [src/command/CommandOutput.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L22)
+```ts
+readonly format: ChalkInstance;
+```
 
 A formatting library (e.g., `chalk`).
 
@@ -25,9 +17,9 @@ A formatting library (e.g., `chalk`).
 
 ### breakLine()
 
-> **breakLine**(`value`): `this`
-
-Defined in: [src/command/CommandOutput.ts:84](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L84)
+```ts
+breakLine(value): this;
+```
 
 Output a line break.
 
@@ -49,9 +41,9 @@ The current instance for chaining.
 
 ### error()
 
-> **error**(`value`, `color`): `this`
-
-Defined in: [src/command/CommandOutput.ts:108](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L108)
+```ts
+error(value, color): this;
+```
 
 Output error-colored text.
 
@@ -79,9 +71,9 @@ The current instance for chaining.
 
 ### info()
 
-> **info**(`value`, `color`): `this`
-
-Defined in: [src/command/CommandOutput.ts:96](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L96)
+```ts
+info(value, color): this;
+```
 
 Output info-colored text.
 
@@ -109,9 +101,9 @@ The current instance for chaining.
 
 ### progressBar()
 
-> **progressBar**(`tokens`, `options`): `ProgressBar`
-
-Defined in: [src/command/CommandOutput.ts:164](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L164)
+```ts
+progressBar(tokens, options): ProgressBar;
+```
 
 Create a progress bar.
 
@@ -139,9 +131,9 @@ A new ProgressBar instance.
 
 ### show()
 
-> **show**(`value`): `this`
-
-Defined in: [src/command/CommandOutput.ts:62](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L62)
+```ts
+show(value): this;
+```
 
 Output uncolored text.
 
@@ -163,9 +155,9 @@ The current instance for chaining.
 
 ### spin()
 
-> **spin**(`value`): `Ora`
-
-Defined in: [src/command/CommandOutput.ts:143](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L143)
+```ts
+spin(value): Ora;
+```
 
 Output a spinner.
 
@@ -187,9 +179,9 @@ The spinner instance started.
 
 ### spinner()
 
-> **spinner**(`value`): `Ora`
-
-Defined in: [src/command/CommandOutput.ts:153](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L153)
+```ts
+spinner(value): Ora;
+```
 
 Creates a spinner instance.
 
@@ -211,9 +203,9 @@ The spinner instance.
 
 ### succeed()
 
-> **succeed**(`value`, `color`): `this`
-
-Defined in: [src/command/CommandOutput.ts:132](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L132)
+```ts
+succeed(value, color): this;
+```
 
 Output success-colored text.
 
@@ -241,9 +233,9 @@ The current instance for chaining.
 
 ### table()
 
-> **table**(`value`): `this`
-
-Defined in: [src/command/CommandOutput.ts:73](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L73)
+```ts
+table(value, properties?): this;
+```
 
 Output a table.
 
@@ -255,6 +247,10 @@ Output a table.
 
 The value to display as a table.
 
+##### properties?
+
+readonly `string`[]
+
 #### Returns
 
 `this`
@@ -265,9 +261,9 @@ The current instance for chaining.
 
 ### warn()
 
-> **warn**(`value`, `color`): `this`
-
-Defined in: [src/command/CommandOutput.ts:120](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L120)
+```ts
+warn(value, color): this;
+```
 
 Output warn-colored text.
 
@@ -295,9 +291,9 @@ The current instance for chaining.
 
 ### create()
 
-> `static` **create**(`options`): [`CommandOutput`](CommandOutput.md)
-
-Defined in: [src/command/CommandOutput.ts:39](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/command/CommandOutput.ts#L39)
+```ts
+static create(options): CommandOutput;
+```
 
 Create a CommandOutput instance.
 
@@ -311,4 +307,4 @@ The options for creating the CommandOutput instance.
 
 #### Returns
 
-[`CommandOutput`](CommandOutput.md)
+`CommandOutput`

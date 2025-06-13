@@ -1,12 +1,12 @@
 import deepmerge from 'deepmerge'
 import { addBlueprint, classDecoratorLegacyWrapper, ClassType } from '@stone-js/core'
-import { nodeCliAdapterBlueprint, NodeCliAdapterConfig } from '../options/NodeCliAdapterBlueprint'
+import { nodeConsoleAdapterBlueprint, NodeConsoleAdapterAdapterConfig } from '../options/NodeConsoleAdapterBlueprint'
 
 /**
  * Configuration options for the `NodeConsole` decorator.
  * These options extend the default Node Cli adapter configuration.
  */
-export interface NodeConsoleOptions extends Partial<NodeCliAdapterConfig> {}
+export interface NodeConsoleOptions extends Partial<NodeConsoleAdapterAdapterConfig> {}
 
 /**
  * A Stone.js decorator that integrates the Node Cli Adapter with a class.
@@ -34,12 +34,12 @@ export interface NodeConsoleOptions extends Partial<NodeCliAdapterConfig> {}
  */
 export const NodeConsole = <T extends ClassType = ClassType>(options: NodeConsoleOptions = {}): ClassDecorator => {
   return classDecoratorLegacyWrapper<T>((target: T, context: ClassDecoratorContext<T>): undefined => {
-    if (nodeCliAdapterBlueprint.stone?.adapters?.[0] !== undefined) {
+    if (nodeConsoleAdapterBlueprint.stone?.adapters?.[0] !== undefined) {
       // Merge provided options with the default Node Cli adapter blueprint.
-      nodeCliAdapterBlueprint.stone.adapters[0] = deepmerge(nodeCliAdapterBlueprint.stone.adapters[0], options)
+      nodeConsoleAdapterBlueprint.stone.adapters[0] = deepmerge(nodeConsoleAdapterBlueprint.stone.adapters[0], options)
     }
 
     // Add the modified blueprint to the target class.
-    addBlueprint(target, context, nodeCliAdapterBlueprint)
+    addBlueprint(target, context, nodeConsoleAdapterBlueprint)
   })
 }

@@ -1,19 +1,16 @@
 import ora from 'ora'
 import chalk from 'chalk'
-import inquirer from 'inquirer'
+import prompts from 'prompts'
 import { CommandInput } from './CommandInput'
 import { CommandOutput } from './CommandOutput'
 import { NODE_CONSOLE_PLATFORM } from '../constants'
-import { IBlueprint, IProvider } from '@stone-js/core'
-import { Container } from '@stone-js/service-container'
-import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
-import { CommandRouter, CommandRouterOptions } from './CommandRouter'
+import { IContainer, IBlueprint, IServiceProvider } from '@stone-js/core'
 
 /**
  * CommandServiceProvider options.
  */
 export interface CommandServiceProviderOptions {
-  container: Container
+  container: IContainer
   blueprint: IBlueprint
 }
 
@@ -24,7 +21,7 @@ export interface CommandServiceProviderOptions {
  * @author
  * Mr. Stone <evensstone@gmail.com>
  */
-export class CommandServiceProvider implements IProvider {
+export class CommandServiceProvider implements IServiceProvider {
   /**
    * Blueprint configuration used to retrieve app settings.
    */
@@ -33,7 +30,7 @@ export class CommandServiceProvider implements IProvider {
   /**
    * The service container that manages dependencies.
    */
-  private readonly container: Container
+  private readonly container: IContainer
 
   /**
    * Create a new instance of CommandServiceProvider.
@@ -41,9 +38,6 @@ export class CommandServiceProvider implements IProvider {
    * @param container - The container instance for dependency resolution.
    */
   constructor ({ container, blueprint }: CommandServiceProviderOptions) {
-    if (container === undefined) { throw new NodeCliAdapterError('Container is required to create a CoreServiceProvider instance.') }
-    if (blueprint === undefined) { throw new NodeCliAdapterError('Blueprint is required to create a CoreServiceProvider instance.') }
-
     this.container = container
     this.blueprint = blueprint
   }
@@ -59,37 +53,17 @@ export class CommandServiceProvider implements IProvider {
   }
 
   /**
-   * Prepares the provider for service registration.
-   */
-  onPrepare (): void {
-    this.blueprint.set('stone.kernel.routerResolver', (container: Container) => container.make<CommandRouter>('commandRouter'))
-  }
-
-  /**
    * Registers router components and application commands in the service container.
    */
   register (): void {
-    this
-      .registerRouter()
-      .registerCommandUtils()
-  }
-
-  /**
-   * Registers the router in the service container.
-   */
-  private registerRouter (): this {
-    this.container
-      .singletonIf(CommandRouter, container => CommandRouter.create(container.make<CommandRouterOptions>('container')))
-      .alias(CommandRouter, 'commandRouter')
-
-    return this
+    this.registerCommandUtils()
   }
 
   /**
    * Registers command utilities in the service container.
    */
   private registerCommandUtils (): this {
-    this.container.singleton(CommandInput, () => CommandInput.create({ prompt: inquirer.createPromptModule() })).alias(CommandInput, 'commandInput')
+    this.container.singleton(CommandInput, () => CommandInput.create({ prompts })).alias(CommandInput, 'commandInput')
     this.container.singleton(CommandOutput, () => CommandOutput.create({ stdConsole: console, smartConsole: ora, format: chalk })).alias(CommandOutput, 'commandOutput')
 
     return this

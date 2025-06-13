@@ -1,4 +1,4 @@
-import { NextPipe } from '@stone-js/pipeline'
+import { NextMiddleware } from '@stone-js/core'
 import { COMMAND_NOT_FOUND_CODE } from '../constants'
 import { NodeCliAdapterError } from '../errors/NodeCliAdapterError'
 import { NodeCliAdapterContext, NodeCliAdapterResponseBuilder } from '../declarations'
@@ -17,7 +17,7 @@ export class RawResponseMiddleware {
    * @returns A promise that resolves to the processed context.
    * @throws {NodeCliAdapterError} If required components are missing in the context.
    */
-  async handle (context: NodeCliAdapterContext, next: NextPipe<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>): Promise<NodeCliAdapterResponseBuilder> {
+  async handle (context: NodeCliAdapterContext, next: NextMiddleware<NodeCliAdapterContext, NodeCliAdapterResponseBuilder>): Promise<NodeCliAdapterResponseBuilder> {
     const rawResponseBuilder = await next(context)
 
     if (context.outgoingResponse === undefined || rawResponseBuilder?.add === undefined) {
@@ -31,3 +31,8 @@ export class RawResponseMiddleware {
     return rawResponseBuilder
   }
 }
+
+/**
+ * Meta Middleware for processing outgoing responses.
+ */
+export const MetaRawResponseMiddleware = { module: RawResponseMiddleware, isClass: true }

@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation v0.0.21**](../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../modules.md) / [NodeCliErrorHandler](../README.md) / NodeCliErrorHandler
-
 # Class: NodeCliErrorHandler
-
-Defined in: [src/NodeCliErrorHandler.ts:14](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliErrorHandler.ts#L14)
 
 Class representing an NodeCliErrorHandler.
 
@@ -16,11 +8,11 @@ Class representing an NodeCliErrorHandler.
 
 ## Constructors
 
-### new NodeCliErrorHandler()
+### Constructor
 
-> **new NodeCliErrorHandler**(`options`): [`NodeCliErrorHandler`](NodeCliErrorHandler.md)
-
-Defined in: [src/NodeCliErrorHandler.ts:22](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliErrorHandler.ts#L22)
+```ts
+new NodeCliErrorHandler(options): NodeCliErrorHandler;
+```
 
 Create an NodeCliErrorHandler.
 
@@ -34,15 +26,15 @@ NodeCliErrorHandler options.
 
 #### Returns
 
-[`NodeCliErrorHandler`](NodeCliErrorHandler.md)
+`NodeCliErrorHandler`
 
 ## Methods
 
 ### handle()
 
-> **handle**(`error`, `context`): `Promise`\<`number`\>
-
-Defined in: [src/NodeCliErrorHandler.ts:37](https://github.com/stonemjs/node-cli-adapter/blob/ef52e5bf0dd08467e3b24c3d05bfc766eee30472/src/NodeCliErrorHandler.ts#L37)
+```ts
+handle(error, context): AdapterEventBuilderType<number>;
+```
 
 Handle an error.
 
@@ -62,10 +54,12 @@ The context of the adapter.
 
 #### Returns
 
-`Promise`\<`number`\>
+`AdapterEventBuilderType`\<`number`\>
 
-The raw response.
+The raw response builder.
 
 #### Implementation of
 
-`IAdapterErrorHandler.handle`
+```ts
+IAdapterErrorHandler.handle
+```
