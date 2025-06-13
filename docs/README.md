@@ -1,8 +1,4 @@
-**Node CLI Adapter Documentation**
-
-***
-
-# Node CLI Adapter Documentation
+# Node CLI Adapter
 
 ## Modules
 

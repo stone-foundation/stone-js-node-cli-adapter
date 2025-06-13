@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../README.md) / [options/NodeConsoleAdapterBlueprint](../README.md) / NodeConsoleAdapterBlueprint
-
 # Interface: NodeConsoleAdapterBlueprint
-
-Defined in: node-cli-adapter/src/options/NodeConsoleAdapterBlueprint.ts:40
 
 Blueprint interface for the Node Cli Adapter.
 
@@ -20,18 +12,25 @@ a `stone` object with an array of `NodeCliAdapterConfig` items.
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+```ts
+[key: string]: unknown
+```
+
+Allow adding any additional custom properties.
+The value of the custom properties can be of any type, depending on user requirements.
 
 ## Properties
 
 ### stone
 
-> **stone**: `Partial`\<[`NodeConsoleAdapterConfig`](NodeConsoleAdapterConfig.md)\>
-
-Defined in: node-cli-adapter/src/options/NodeConsoleAdapterBlueprint.ts:41
+```ts
+stone: Partial<NodeConsoleAdapterConfig>;
+```
 
 Application-level settings, including environment, middleware, logging, and service registration.
 
 #### Overrides
 
-`StoneBlueprint.stone`
+```ts
+StoneBlueprint.stone
+```

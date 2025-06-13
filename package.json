@@ -1,14 +1,14 @@
 {
   "name": "@stone-js/node-cli-adapter",
   "version": "0.0.21",
-  "description": "Stone.js Node CLI Adapter",
+  "description": "CLI adapter for Stone.js. Enables command-line execution and custom commands using the Continuum Architecture.",
   "author": "Mr. Stone <evensstone@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/stone-js/node-cli-adapter.git"
   },
-  "homepage": "https://github.com/stone-js/node-cli-adapter#readme",
+  "homepage": "https://stonejs.dev",
   "bugs": {
     "url": "https://github.com/stone-js/node-cli-adapter/issues"
   },
@@ -53,7 +53,7 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "@stone-js/core": "file:/Users/evenspierre/Projects/StoneJS/core"
+    "@stone-js/core": "^0.1.1"
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -63,34 +63,35 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@rollup/plugin-commonjs": "^28.0.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-multi-entry": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.1",
-    "@types/node": "^22.9.0",
+    "@types/node": "^24.0.0",
     "@types/progress": "^2.0.7",
     "@types/prompts": "^2.4.9",
     "@types/yargs": "^17.0.33",
-    "@vitest/coverage-v8": "^3.0.9",
-    "husky": "^9.1.6",
+    "@vitest/coverage-v8": "^3.2.3",
+    "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "rollup": "^4.1.5",
-    "rollup-plugin-delete": "^2.1.0",
-    "rollup-plugin-dts": "^6.1.1",
+    "rollup": "^4.43.0",
+    "rollup-plugin-delete": "^3.0.1",
+    "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-node-externals": "^8.0.0",
     "ts-standard": "^12.0.2",
     "tslib": "^2.8.1",
-    "typedoc": "^0.28.1",
-    "typedoc-plugin-markdown": "^4.5.2",
+    "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.6.4",
     "typescript": "^5.6.3",
-    "vitest": "^3.0.9"
+    "vitest": "^3.2.3"
   },
   "ts-standard": {
     "globals": [
       "it",
+      "test",
       "expect",
       "describe",
       "beforeEach"

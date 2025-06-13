@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../README.md) / [middleware/RawResponseMiddleware](../README.md) / RawResponseMiddleware
-
 # Class: RawResponseMiddleware
-
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:11](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/middleware/RawResponseMiddleware.ts#L11)
 
 Middleware for handling raw responses in the Node CLI adapter.
 
@@ -14,9 +6,11 @@ This middleware processes outgoing responses and attaches the necessary exit cod
 
 ## Constructors
 
-### new RawResponseMiddleware()
+### Constructor
 
-> **new RawResponseMiddleware**(): `RawResponseMiddleware`
+```ts
+new RawResponseMiddleware(): RawResponseMiddleware;
+```
 
 #### Returns
 
@@ -26,9 +20,9 @@ This middleware processes outgoing responses and attaches the necessary exit cod
 
 ### handle()
 
-> **handle**(`context`, `next`): `Promise`\<[`NodeCliAdapterResponseBuilder`](../../../declarations/type-aliases/NodeCliAdapterResponseBuilder.md)\>
-
-Defined in: [node-cli-adapter/src/middleware/RawResponseMiddleware.ts:20](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/middleware/RawResponseMiddleware.ts#L20)
+```ts
+handle(context, next): Promise<NodeCliAdapterResponseBuilder>;
+```
 
 Handles the outgoing response, processes it, and invokes the next middleware in the pipeline.
 

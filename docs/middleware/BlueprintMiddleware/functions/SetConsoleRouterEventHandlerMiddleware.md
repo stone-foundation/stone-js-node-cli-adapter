@@ -1,14 +1,8 @@
-[**Node CLI Adapter Documentation**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / SetConsoleRouterEventHandlerMiddleware
-
 # Function: SetConsoleRouterEventHandlerMiddleware()
 
-> **SetConsoleRouterEventHandlerMiddleware**(`context`, `next`): `Promise`\<`IBlueprint`\>
-
-Defined in: [node-cli-adapter/src/middleware/BlueprintMiddleware.ts:56](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/middleware/BlueprintMiddleware.ts#L56)
+```ts
+function SetConsoleRouterEventHandlerMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Blueprint middleware to set the ConsoleRouter as the main event handler for the application.
 

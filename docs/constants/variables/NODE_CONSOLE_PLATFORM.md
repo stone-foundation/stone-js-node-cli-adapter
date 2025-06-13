@@ -1,14 +1,8 @@
-[**Node CLI Adapter Documentation**](../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../README.md) / [constants](../README.md) / NODE\_CONSOLE\_PLATFORM
-
 # Variable: NODE\_CONSOLE\_PLATFORM
 
-> `const` **NODE\_CONSOLE\_PLATFORM**: `"node_console"` = `'node_console'`
-
-Defined in: [node-cli-adapter/src/constants.ts:8](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/constants.ts#L8)
+```ts
+const NODE_CONSOLE_PLATFORM: "node_console" = 'node_console';
+```
 
 A constant representing the Node Cli platform identifier.
 

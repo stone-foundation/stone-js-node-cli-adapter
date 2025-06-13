@@ -1,14 +1,8 @@
-[**Node CLI Adapter Documentation**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../README.md) / [options/NodeConsoleAdapterBlueprint](../README.md) / nodeConsoleAdapterBlueprint
-
 # Variable: nodeConsoleAdapterBlueprint
 
-> `const` **nodeConsoleAdapterBlueprint**: [`NodeConsoleAdapterBlueprint`](../interfaces/NodeConsoleAdapterBlueprint.md)
-
-Defined in: node-cli-adapter/src/options/NodeConsoleAdapterBlueprint.ts:53
+```ts
+const nodeConsoleAdapterBlueprint: NodeConsoleAdapterBlueprint;
+```
 
 Default blueprint configuration for the Node Cli Adapter.
 

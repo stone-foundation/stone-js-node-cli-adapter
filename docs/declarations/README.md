@@ -1,9 +1,3 @@
-[**Node CLI Adapter Documentation**](../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../README.md) / declarations
-
 # declarations
 
 ## Interfaces

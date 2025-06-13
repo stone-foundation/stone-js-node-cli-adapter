@@ -1,12 +1,4 @@
-[**Node CLI Adapter Documentation**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../README.md) / [command/CommandServiceProvider](../README.md) / CommandServiceProvider
-
 # Class: CommandServiceProvider
-
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:24](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandServiceProvider.ts#L24)
 
 Class representing a CommandServiceProvider.
 Responsible for registering router and application commands.
@@ -21,11 +13,11 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Constructors
 
-### new CommandServiceProvider()
+### Constructor
 
-> **new CommandServiceProvider**(`container`): `CommandServiceProvider`
-
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:40](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandServiceProvider.ts#L40)
+```ts
+new CommandServiceProvider(container): CommandServiceProvider;
+```
 
 Create a new instance of CommandServiceProvider.
 
@@ -45,9 +37,9 @@ The container instance for dependency resolution.
 
 ### mustSkip()
 
-> **mustSkip**(): `boolean`
-
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:51](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandServiceProvider.ts#L51)
+```ts
+mustSkip(): boolean;
+```
 
 Determines if this provider should be skipped.
 Useful for registering the provider based on platform.
@@ -60,15 +52,17 @@ True if the provider should be skipped; otherwise, false.
 
 #### Implementation of
 
-`IServiceProvider.mustSkip`
+```ts
+IServiceProvider.mustSkip
+```
 
 ***
 
 ### register()
 
-> **register**(): `void`
-
-Defined in: [node-cli-adapter/src/command/CommandServiceProvider.ts:58](https://github.com/stonemjs/node-cli-adapter/blob/942602ba5f120245f6f1f4ea802cbd5e86b9d774/src/command/CommandServiceProvider.ts#L58)
+```ts
+register(): void;
+```
 
 Registers router components and application commands in the service container.
 
@@ -78,4 +72,6 @@ Registers router components and application commands in the service container.
 
 #### Implementation of
 
-`IServiceProvider.register`
+```ts
+IServiceProvider.register
+```

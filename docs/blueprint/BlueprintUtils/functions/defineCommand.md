@@ -1,9 +1,3 @@
-[**Node CLI Adapter Documentation**](../../../README.md)
-
-***
-
-[Node CLI Adapter Documentation](../../../README.md) / [blueprint/BlueprintUtils](../README.md) / defineCommand
-
 # Function: defineCommand()
 
 Utility function to define a command handler for the Node Console Adapter.
@@ -18,9 +12,9 @@ The metadata options for the handler.
 
 ## Call Signature
 
-> **defineCommand**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`NodeConsoleAdapterBlueprint`](../../../options/NodeConsoleAdapterBlueprint/interfaces/NodeConsoleAdapterBlueprint.md)\>
-
-Defined in: node-cli-adapter/src/blueprint/BlueprintUtils.ts:13
+```ts
+function defineCommand<U, V>(module, options): Partial<NodeConsoleAdapterBlueprint>;
+```
 
 Utility function to define a function-based command handler for the Node Console Adapter.
 
@@ -64,9 +58,9 @@ The metadata options for the handler.
 
 ## Call Signature
 
-> **defineCommand**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`NodeConsoleAdapterBlueprint`](../../../options/NodeConsoleAdapterBlueprint/interfaces/NodeConsoleAdapterBlueprint.md)\>
-
-Defined in: node-cli-adapter/src/blueprint/BlueprintUtils.ts:25
+```ts
+function defineCommand<U, V>(module, options): Partial<NodeConsoleAdapterBlueprint>;
+```
 
 Utility function to define a factory-based command handler for the Node Console Adapter.
 
@@ -110,9 +104,9 @@ The metadata options for the handler.
 
 ## Call Signature
 
-> **defineCommand**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`NodeConsoleAdapterBlueprint`](../../../options/NodeConsoleAdapterBlueprint/interfaces/NodeConsoleAdapterBlueprint.md)\>
-
-Defined in: node-cli-adapter/src/blueprint/BlueprintUtils.ts:37
+```ts
+function defineCommand<U, V>(module, options): Partial<NodeConsoleAdapterBlueprint>;
+```
 
 Utility function to define a class-based command handler for the Node Console Adapter.
 

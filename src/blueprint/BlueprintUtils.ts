@@ -1,6 +1,7 @@
-import { IncomingEvent } from '@stone-js/core'
+import { NODE_CONSOLE_PLATFORM } from '../constants'
 import { CommandOptions } from '../decorators/Command'
 import { NodeConsoleAdapterBlueprint } from '../options/NodeConsoleAdapterBlueprint'
+import { BlueprintContext, ClassType, IBlueprint, IncomingEvent, NextMiddleware } from '@stone-js/core'
 import { CommandHandlerClass, CommandHandlerType, FactoryCommandHandler, FunctionalCommandHandler } from '../declarations'
 
 /**
@@ -50,16 +51,29 @@ export function defineCommand<U extends IncomingEvent = IncomingEvent, V = unkno
   module: CommandHandlerType<U, V>,
   options: CommandOptions & { isClass?: boolean, isFactory?: boolean }
 ): Partial<NodeConsoleAdapterBlueprint> {
+  const AdapterMiddleware = async (
+    context: BlueprintContext<IBlueprint, ClassType>,
+    next: NextMiddleware<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
+  ): Promise<IBlueprint> => {
+    const blueprint = await next(context)
+
+    if (blueprint.is('stone.adapter.platform', NODE_CONSOLE_PLATFORM)) {
+      blueprint.add('stone.adapter.commands', [{
+        options,
+        isClass: options.isClass,
+        isFactory: options.isFactory,
+        module: module as CommandHandlerType<IncomingEvent, V>
+      }])
+    }
+
+    return blueprint
+  }
+
   return {
     stone: {
-      adapter: {
-        commands: [
-          {
-            options,
-            isClass: options.isClass,
-            isFactory: options.isFactory,
-            module: module as CommandHandlerType<IncomingEvent, V>
-          }
+      blueprint: {
+        middleware: [
+          { module: AdapterMiddleware }
         ]
       }
     }
