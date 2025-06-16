@@ -5,6 +5,13 @@ All notable changes to the "Stone.js Node Cli Adapter" extension will be documen
 ## Unreleased
 
 
+## [0.2.0](https://github.com/stone-foundation/stone-js-node-cli-adapter/compare/v0.1.0...v0.2.0) (2025-06-16)
+
+
+### Features
+
+* add browser-safe fallback entry with no-op modules for frontend compatibility ([#41](https://github.com/stone-foundation/stone-js-node-cli-adapter/issues/41)) ([6d3040e](https://github.com/stone-foundation/stone-js-node-cli-adapter/commit/6d3040e36f9971cd50e19a64354fdfc865d34536))
+
 ## [0.1.0](https://github.com/stone-foundation/stone-js-node-cli-adapter/compare/v0.0.21...v0.1.0) (2025-06-13)
 
 
@@ -26,4 +33,3 @@ All notable changes to the "Stone.js Node Cli Adapter" extension will be documen
 ### Features
 
 * implement node cli adapter ([30743f7](https://github.com/stone-foundation/stone-js-node-cli-adapter/commit/30743f7aaaae46db17826e810be4549d56406b6f))
-
