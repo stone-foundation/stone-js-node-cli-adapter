@@ -1,8 +1,10 @@
 import { COMMAND_KEY } from '../../src/decorators/constants'
-import { addBlueprint, setClassMetadata } from '@stone-js/core'
 import { Command, CommandOptions } from '../../src/decorators/Command'
 import { NodeConsoleOptions, NodeConsole } from '../../src/decorators/NodeConsole'
 import { nodeConsoleAdapterBlueprint } from '../../src/options/NodeConsoleAdapterBlueprint'
+import { NodeConsole as BrowserNodeConsole } from '../../src/browser/decorators/NodeConsole'
+import { addBlueprint, classDecoratorLegacyWrapper, setClassMetadata } from '@stone-js/core'
+import { nodeConsoleAdapterBlueprint as baseNodeConsoleAdapterBlueprint } from '../../src/browser/options/NodeConsoleAdapterBlueprint'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -13,10 +15,10 @@ vi.mock('@stone-js/core', async (importOriginal) => {
     ...actual,
     addBlueprint: vi.fn(() => {}),
     setClassMetadata: vi.fn(() => {}),
-    classDecoratorLegacyWrapper: (fn: Function) => {
+    classDecoratorLegacyWrapper: vi.fn((fn: Function) => {
       fn()
       return fn
-    }
+    })
   }
 })
 
@@ -24,7 +26,10 @@ describe('NodeConsole', () => {
   it('should call addBlueprint with correct parameters', () => {
     const options: NodeConsoleOptions = nodeConsoleAdapterBlueprint.stone.adapters?.[0] ?? {}
     NodeConsole(options)(class {})
+    BrowserNodeConsole()(class {})
     expect(addBlueprint).toHaveBeenCalled()
+    expect(classDecoratorLegacyWrapper).toHaveBeenCalledTimes(2)
+    expect(addBlueprint).not.toHaveBeenCalledWith(expect.any(Function), expect.any(Object), baseNodeConsoleAdapterBlueprint)
   })
 
   it('should call addBlueprint with default options if none are provided', () => {

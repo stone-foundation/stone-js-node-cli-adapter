@@ -11,7 +11,7 @@ const mockOptions = {
 
 const createMockBlueprint = (isMatch: boolean, add = vi.fn()): IBlueprint => ({
   add,
-  is: vi.fn((_key: string, _value: string) => isMatch),
+  is: vi.fn((_key: string, _value: string) => isMatch)
 }) as unknown as IBlueprint
 
 const next = vi.fn()
@@ -19,7 +19,7 @@ const next = vi.fn()
 describe('defineCommand', () => {
   it('should define a functional command (no isFactory)', async () => {
     const handler = async (_event: IncomingEvent): Promise<void> => {}
-    
+
     const blueprint = createMockBlueprint(true)
     next.mockResolvedValueOnce(blueprint)
 
