@@ -42,7 +42,7 @@ The current instance for chaining.
 ### error()
 
 ```ts
-error(value, color): this;
+error(value, color?): this;
 ```
 
 Output error-colored text.
@@ -55,7 +55,7 @@ Output error-colored text.
 
 The text to display.
 
-##### color
+##### color?
 
 `boolean` = `true`
 
@@ -72,7 +72,7 @@ The current instance for chaining.
 ### info()
 
 ```ts
-info(value, color): this;
+info(value, color?): this;
 ```
 
 Output info-colored text.
@@ -85,7 +85,7 @@ Output info-colored text.
 
 The text to display.
 
-##### color
+##### color?
 
 `boolean` = `true`
 
@@ -204,7 +204,7 @@ The spinner instance.
 ### succeed()
 
 ```ts
-succeed(value, color): this;
+succeed(value, color?): this;
 ```
 
 Output success-colored text.
@@ -217,7 +217,7 @@ Output success-colored text.
 
 The text to display.
 
-##### color
+##### color?
 
 `boolean` = `true`
 
@@ -262,7 +262,7 @@ The current instance for chaining.
 ### warn()
 
 ```ts
-warn(value, color): this;
+warn(value, color?): this;
 ```
 
 Output warn-colored text.
@@ -275,7 +275,7 @@ Output warn-colored text.
 
 The text to display.
 
-##### color
+##### color?
 
 `boolean` = `true`
 

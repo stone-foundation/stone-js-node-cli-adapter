@@ -12,13 +12,11 @@ These options extend the default Node Cli adapter configuration.
 ### commands?
 
 ```ts
-optional commands: MetaCommandHandler<IncomingEvent, unknown>[];
+optional commands?: MetaCommandHandler<IncomingEvent, unknown>[];
 ```
 
 The commands that the Node Cli adapter will handle.
 
 #### Inherited from
 
-```ts
-Partial.commands
-```
+[`NodeConsoleAdapterAdapterConfig`](../../../options/NodeConsoleAdapterBlueprint/interfaces/NodeConsoleAdapterAdapterConfig.md).[`commands`](../../../options/NodeConsoleAdapterBlueprint/interfaces/NodeConsoleAdapterAdapterConfig.md#commands)

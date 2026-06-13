@@ -4,9 +4,13 @@ Utility function to define a command handler for the Node Console Adapter.
 
 ## Param
 
+**module**
+
 The CommandHandler module.
 
 ## Param
+
+**options**
 
 The metadata options for the handler.
 
@@ -48,14 +52,6 @@ The metadata options for the handler.
 
 The NodeConsoleAdapterBlueprint.
 
-### Param
-
-The CommandHandler module.
-
-### Param
-
-The metadata options for the handler.
-
 ## Call Signature
 
 ```ts
@@ -94,14 +90,6 @@ The metadata options for the handler.
 
 The NodeConsoleAdapterBlueprint.
 
-### Param
-
-The CommandHandler module.
-
-### Param
-
-The metadata options for the handler.
-
 ## Call Signature
 
 ```ts
@@ -139,11 +127,3 @@ The metadata options for the handler.
 `Partial`\<[`NodeConsoleAdapterBlueprint`](../../../options/NodeConsoleAdapterBlueprint/interfaces/NodeConsoleAdapterBlueprint.md)\>
 
 The NodeConsoleAdapterBlueprint.
-
-### Param
-
-The CommandHandler module.
-
-### Param
-
-The metadata options for the handler.

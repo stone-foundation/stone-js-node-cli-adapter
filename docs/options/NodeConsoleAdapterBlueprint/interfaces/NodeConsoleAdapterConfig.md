@@ -17,7 +17,7 @@ Represents the NodeCli configuration options for the application.
 ### adapter?
 
 ```ts
-optional adapter: Partial<NodeConsoleAdapterAdapterConfig>;
+optional adapter?: Partial<NodeConsoleAdapterAdapterConfig>;
 ```
 
 Current Adapter configurations for the application.

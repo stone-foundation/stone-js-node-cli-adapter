@@ -1,4 +1,4 @@
-# Type Alias: FunctionalCommandHandler()\<W, X\>
+# Type Alias: FunctionalCommandHandler\<W, X\>
 
 ```ts
 type FunctionalCommandHandler<W, X> = (incomingEvent) => Promiseable<X>;
