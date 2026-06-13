@@ -6,7 +6,7 @@ const MetaCommandRouterEventHandler: object;
 
 MetaCommandRouterEventHandler module.
 
-## Type declaration
+## Type Declaration
 
 ### isClass
 

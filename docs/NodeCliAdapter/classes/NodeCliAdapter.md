@@ -11,29 +11,43 @@ abstracts the event handling process for Stone.js developers.
 
 ## Template
 
+**NodeCliEvent**
+
 The type of the raw event received from Node Cli.
 
 ## Template
+
+**RawResponse**
 
 The type of the response to send back to Node Cli.
 
 ## Template
 
+**NodeCliExecutionContext**
+
 The Node Cli execution context type.
 
 ## Template
+
+**IncomingEvent**
 
 The type of the processed incoming event.
 
 ## Template
 
+**IncomingEventOptions**
+
 Options used to create an incoming event.
 
 ## Template
 
+**OutgoingResponse**
+
 The type of the outgoing response after processing.
 
 ## Template
+
+**NodeCliAdapterContext**
 
 Context type specific to the adapter.
 

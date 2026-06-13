@@ -16,13 +16,15 @@ import {
 } from '@stone-js/core'
 import { argv } from 'node:process'
 import { hideBin } from 'yargs/helpers'
-// @ts-expect-error - This import is handled by @rollup/plugin-json
-import { version } from '../package.json'
 import yargs, { BuilderCallback } from 'yargs'
 import { COMMAND_NOT_FOUND_CODE } from './constants'
 import { CommandOptions } from './decorators/Command'
 import { RawResponseWrapper } from './RawResponseWrapper'
 import { NodeCliAdapterError } from './errors/NodeCliAdapterError'
+
+// import { version } from '../package.json' // @ts-ignore - This import is handled by @rollup/plugin-json
+
+const version = '0.2.1'
 
 /**
  * Node Cli Adapter for Stone.js.

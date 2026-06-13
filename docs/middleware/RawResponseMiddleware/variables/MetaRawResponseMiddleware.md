@@ -6,7 +6,7 @@ const MetaRawResponseMiddleware: object;
 
 Meta Middleware for processing outgoing responses.
 
-## Type declaration
+## Type Declaration
 
 ### isClass
 

@@ -12,7 +12,7 @@ format: ChalkInstance;
 
 ***
 
-### smartConsole()
+### smartConsole
 
 ```ts
 smartConsole: (options?) => Ora;
@@ -24,9 +24,9 @@ Elegant terminal spinner.
 
 ##### options?
 
-If a string is provided, it is treated as a shortcut for `options.text`.
+`string` \| `Options`
 
-`string` | `Options`
+If a string is provided, it is treated as a shortcut for `options.text`.
 
 #### Returns
 

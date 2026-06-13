@@ -73,8 +73,8 @@ The result of the command execution.
 
 ```ts
 findCommand(event): 
-  | undefined
-| ICommandHandler<W, X>;
+  | ICommandHandler<W, X>
+  | undefined;
 ```
 
 Finds a command that matches the given event.
@@ -89,8 +89,8 @@ The incoming event to match against commands.
 
 #### Returns
 
-  \| `undefined`
   \| [`ICommandHandler`](../../../declarations/interfaces/ICommandHandler.md)\<`W`, `X`\>
+  \| `undefined`
 
 The matching command, or undefined if no match is found.
 

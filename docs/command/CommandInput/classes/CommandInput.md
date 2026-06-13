@@ -73,8 +73,8 @@ The user's response as a number.
 choice(
    message, 
    choices, 
-   fallbackIndex, 
-multiple): Promise<string | string[]>;
+   fallbackIndex?, 
+multiple?): Promise<string | string[]>;
 ```
 
 Asks the user to choose from a list of options.
@@ -93,13 +93,13 @@ The message to display to the user.
 
 A list of string options to choose from.
 
-##### fallbackIndex
+##### fallbackIndex?
 
 `number`[] = `...`
 
 An array of fallback selected indices (default is first).
 
-##### multiple
+##### multiple?
 
 `boolean` = `false`
 
@@ -116,7 +116,7 @@ The user's selection(s) as a string or array of strings.
 ### confirm()
 
 ```ts
-confirm(message, fallback): Promise<boolean>;
+confirm(message, fallback?): Promise<boolean>;
 ```
 
 Asks the user for a yes/no confirmation.
@@ -129,7 +129,7 @@ Asks the user for a yes/no confirmation.
 
 The confirmation message to show.
 
-##### fallback
+##### fallback?
 
 `boolean` = `false`
 

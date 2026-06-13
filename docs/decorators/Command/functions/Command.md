@@ -1,7 +1,7 @@
 # Function: Command()
 
 ```ts
-function Command<T>(options): ClassDecorator;
+function Command<T>(options?): ClassDecorator;
 ```
 
 Command decorator to mark a class as a command and automatically bind it to the container.
@@ -17,7 +17,7 @@ making them easily injectable and manageable by the command container.
 
 ## Parameters
 
-### options
+### options?
 
 `Partial`\<[`CommandOptions`](../interfaces/CommandOptions.md)\> = `{}`
 

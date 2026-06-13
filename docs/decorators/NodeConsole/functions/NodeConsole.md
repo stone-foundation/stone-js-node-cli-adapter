@@ -1,7 +1,7 @@
 # Function: NodeConsole()
 
 ```ts
-function NodeConsole<T>(options): ClassDecorator;
+function NodeConsole<T>(options?): ClassDecorator;
 ```
 
 A Stone.js decorator that integrates the Node Cli Adapter with a class.
@@ -20,7 +20,7 @@ The type of the class being decorated. Defaults to `ClassType`.
 
 ## Parameters
 
-### options
+### options?
 
 [`NodeConsoleOptions`](../interfaces/NodeConsoleOptions.md) = `{}`
 

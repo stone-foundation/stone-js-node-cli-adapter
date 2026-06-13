@@ -10,6 +10,8 @@ Creates and configures an `NodeCliAdapter` for handling generic events in Node C
 
 ## Param
 
+**blueprint**
+
 The `IBlueprint` providing configuration and dependencies.
 
 ## Returns

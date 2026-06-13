@@ -1,4 +1,4 @@
-# Type Alias: FactoryCommandHandler()\<W, X\>
+# Type Alias: FactoryCommandHandler\<W, X\>
 
 ```ts
 type FactoryCommandHandler<W, X> = (container) => 
@@ -22,7 +22,7 @@ Represents FactoryCommandHandler.
 
 ### container
 
-`IContainer` | `any`
+`IContainer` \| `any`
 
 ## Returns
 

@@ -9,7 +9,7 @@ Represents the configuration options for a CLI command.
 ### alias?
 
 ```ts
-optional alias: string | string[];
+optional alias?: string | string[];
 ```
 
 Alias or aliases for the command, used for identification or access.
@@ -20,7 +20,7 @@ Can be a single alias or an array of aliases.
 ### args?
 
 ```ts
-optional args: string | string[];
+optional args?: string | string[];
 ```
 
 The arguments required or accepted by the command.
@@ -31,7 +31,7 @@ Can be a single argument or an array of arguments.
 ### desc?
 
 ```ts
-optional desc: string;
+optional desc?: string;
 ```
 
 The description of the command.
@@ -51,7 +51,7 @@ The unique name of the command.
 ### options?
 
 ```ts
-optional options: Partial<CommandBuilder<{
+optional options?: Partial<CommandBuilder<{
 }>>;
 ```
 
