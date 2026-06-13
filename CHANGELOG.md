@@ -5,6 +5,13 @@ All notable changes to the "Stone.js Node Cli Adapter" extension will be documen
 ## Unreleased
 
 
+## [0.2.1](https://github.com/stone-foundation/stone-js-node-cli-adapter/compare/v0.2.0...v0.2.1) (2026-06-13)
+
+
+### Miscellaneous Chores
+
+* update Stone core dep ([#53](https://github.com/stone-foundation/stone-js-node-cli-adapter/issues/53)) ([e3ad362](https://github.com/stone-foundation/stone-js-node-cli-adapter/commit/e3ad3620127bd141fd91c08a6460927d4b786655))
+
 ## [0.2.0](https://github.com/stone-foundation/stone-js-node-cli-adapter/compare/v0.1.0...v0.2.0) (2025-06-16)
 
 
